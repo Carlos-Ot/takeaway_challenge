@@ -1,10 +1,12 @@
 package com.ottoboni.takeawaychallenge.di
 
-import org.koin.core.module.Module
+import com.ottoboni.corelocalstorage.di.LocalStorageModule
 
 object ApplicationModules {
 
-    private val coreModules = listOf<Module>()
+    private val coreModules = listOf(
+        LocalStorageModule.instance
+    )
 
     val modules = coreModules
 }

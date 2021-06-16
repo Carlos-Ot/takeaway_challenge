@@ -17,6 +17,7 @@ object Versions {
     object AndroidJetPack {
         const val lifecycle = "2.2.0"
         const val arch_core = "2.1.0"
+        const val room = "2.3.0"
     }
 
     object AndroidKTX {
@@ -26,8 +27,8 @@ object Versions {
 
     object Testing {
         const val junit = "4.13"
-        const val mockk = "1.10.0"
-        const val truth = "1.0.1"
+        const val mockk = "1.10.6"
+        const val truth = "1.1.3"
         const val androidTestCore = "1.2.0"
         const val androidTestJUnit = "1.1.1"
     }

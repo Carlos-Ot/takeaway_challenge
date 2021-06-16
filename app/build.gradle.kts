@@ -47,6 +47,8 @@ android {
 
 dependencies {
 
+    implementation(project(":core-local-storage"))
+
     Dependencies.Kotlin().forEach { implementation(it) }
     Dependencies.AndroidX().forEach { implementation(it) }
     Dependencies.AndroidUI().forEach { implementation(it) }
