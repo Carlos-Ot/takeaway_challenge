@@ -53,6 +53,13 @@ object Dependencies {
         operator fun invoke() = arrayOf(core, annotation)
     }
 
+    object Room {
+        const val runtime = "androidx.room:room-runtime:${Versions.AndroidJetPack.room}"
+        const val ktx = "androidx.room:room-ktx:${Versions.AndroidJetPack.room}"
+        const val compiler = "androidx.room:room-compiler:${Versions.AndroidJetPack.room}"
+        const val testing = "androidx.room:room-testing:${Versions.AndroidJetPack.room}"
+    }
+
     object AndroidLifecycle {
         private const val extensions =
             "androidx.lifecycle:lifecycle-extensions:${Versions.AndroidJetPack.lifecycle}"
@@ -89,7 +96,7 @@ object Dependencies {
 
         operator fun invoke(type: Type) = when (type) {
             Type.UNIT -> arrayOf(jUnit, archCore, kotlinJUnit, mockk, truth)
-            Type.ANDROID -> arrayOf(androidTestCore, androidJUnit, testRunner, testRules)
+            Type.ANDROID -> arrayOf(androidTestCore, archCore, androidJUnit, testRunner, testRules, truth)
         }
 
         enum class Type {

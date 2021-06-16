@@ -1,3 +1,0 @@
-include ':core-local-storage'
-include ':app'
-rootProject.name = "Takeaway Challenge"
