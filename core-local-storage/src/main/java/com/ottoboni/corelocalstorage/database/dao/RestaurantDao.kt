@@ -10,7 +10,7 @@ import com.ottoboni.corelocalstorage.database.entity.RestaurantEntity
 interface RestaurantDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(restaurant: RestaurantEntity)
+    suspend fun insert(restaurant: RestaurantEntity): Long
 
     @Query("SELECT * FROM tb_restaurant WHERE id = :id")
     suspend fun selectBy(id: Long): RestaurantEntity?
