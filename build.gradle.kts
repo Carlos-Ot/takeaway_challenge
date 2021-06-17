@@ -1,8 +1,7 @@
 import Dependencies.modules
-import com.android.build.api.dsl.BuildFeatures
 import com.android.build.gradle.BaseExtension
-import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 buildscript {
     repositories {

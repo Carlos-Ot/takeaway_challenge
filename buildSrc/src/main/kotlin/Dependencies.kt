@@ -3,6 +3,7 @@ import kotlin.reflect.full.memberProperties
 object Dependencies {
 
     object Module {
+        const val core_domain = ":core-domain"
         const val core_local_storage = ":core-local-storage"
         const val core_data = ":core-data"
     }
@@ -23,11 +24,11 @@ object Dependencies {
 
     object Coroutines {
         const val core =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinVersion}"
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
         const val android =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinVersion}"
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
         const val testing =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinVersion}"
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     }
 
     object Koin {
@@ -74,8 +75,9 @@ object Dependencies {
     object Moshi {
         private const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
         private const val codeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+        private const val adapters = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
 
-        operator fun invoke() = arrayOf(moshi, codeGen)
+        operator fun invoke() = arrayOf(moshi, codeGen, adapters)
     }
 
     object AndroidLifecycle {

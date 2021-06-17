@@ -1,6 +1,6 @@
 package com.ottoboni.takeawaychallenge
 
-import org.junit.Assert.*
+import junit.framework.TestCase.assertEquals
 import org.junit.Test
 
 /**

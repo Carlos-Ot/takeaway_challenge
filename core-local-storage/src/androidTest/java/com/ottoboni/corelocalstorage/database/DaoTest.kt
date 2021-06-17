@@ -15,8 +15,11 @@ abstract class DaoTest {
         @JvmStatic
         fun initDb() {
             appDatabase =
-                    AppDatabase
-                            .buildDatabase(ApplicationProvider.getApplicationContext(), inMemory = true)
+                AppDatabase
+                    .buildDatabase(
+                        ApplicationProvider.getApplicationContext(),
+                        inMemory = true
+                    )
         }
 
         @AfterClass

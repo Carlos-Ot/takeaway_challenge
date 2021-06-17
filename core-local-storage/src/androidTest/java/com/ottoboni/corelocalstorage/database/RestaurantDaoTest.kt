@@ -17,12 +17,12 @@ class RestaurantDaoTest : DaoTest() {
     var rule: TestRule = InstantTaskExecutorRule()
 
     private val restaurantDao = appDatabase.restaurantDao()
+    private val restaurantEntity = RestaurantEntity(id = 10, name = "Lamen San")
 
     @Test
     fun insertAndGetRestaurant() = runBlocking {
-        val restaurantEntity = RestaurantEntity(id = 10, name = "Lamen San")
-
         val insertedId = restaurantDao.insert(restaurantEntity)
+
         val insertedRestaurant = restaurantDao.selectBy(insertedId)
 
         assertThat(insertedRestaurant).isEqualTo(restaurantEntity)
@@ -30,11 +30,20 @@ class RestaurantDaoTest : DaoTest() {
 
     @Test
     fun insertAndDeleteRestaurantTest() = runBlocking {
-        val restaurantEntity = RestaurantEntity(id = 10, name = "Lamen San")
-
         restaurantDao.insert(restaurantEntity)
+
         restaurantDao.deleteSafelyBy(restaurantEntity.id)
 
         assertThat(restaurantDao.selectBy(restaurantEntity.id)).isNull()
+    }
+
+    @Test
+    fun insertDuplicateShouldBeIgnored() = runBlocking {
+        restaurantDao.insert(restaurantEntity)
+
+        val insertedId = restaurantDao.insert(RestaurantEntity(name = "Lamen San"))
+
+        assertThat(restaurantDao.selectBy(restaurantEntity.id)).isNotNull()
+        assertThat(restaurantDao.selectBy(insertedId)).isNull()
     }
 }
