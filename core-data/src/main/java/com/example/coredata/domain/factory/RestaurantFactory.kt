@@ -11,13 +11,9 @@ class RestaurantFactory(
     private val sortingValuesFactory: ModelFactory<SortingValuesData, SortingValues>,
 ) : ModelFactory<RestaurantData, Restaurant> {
     override fun make(input: RestaurantData) = Restaurant(
-        name = input.name?.ifBlank { null } ?: DEFAULT_EMPTY_STRING,
+        name = input.name?.ifBlank { null },
         status = input.status?.let(openingStatusFactory::make) ?: OpeningStatus.CLOSED,
         isFavorite = false,
         sortingValues = input.sortingValues?.let(sortingValuesFactory::make)
     )
-
-    companion object {
-        private const val DEFAULT_EMPTY_STRING = ""
-    }
 }
