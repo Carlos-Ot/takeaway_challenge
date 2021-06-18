@@ -27,7 +27,8 @@ class UserRestaurantDaoTest : DaoTest() {
     private val userRestaurantDao: UserRestaurantDao = appDatabase.userRestaurantDao()
 
     private val userEntity = UserEntity(id = 10, name = "Test User")
-    private val restaurantEntity = RestaurantEntity(id = 10, name = "Test Restaurant")
+    private val restaurantEntity =
+        RestaurantEntity(id = 10, name = "Test Restaurant", status = "open", sortingValues = null)
     private val userRestaurantEntity = UserRestaurantEntity(userEntity.id, restaurantEntity.id)
 
     @Before

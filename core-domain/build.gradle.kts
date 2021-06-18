@@ -1,5 +1,5 @@
 dependencies {
-    implementation(project(Dependencies.Module.core_local_storage))
+    implementation(project(Dependencies.Module.core_data))
 
     Dependencies.Kotlin().forEach { implementation(it) }
     Dependencies.AndroidX().forEach { implementation(it) }
