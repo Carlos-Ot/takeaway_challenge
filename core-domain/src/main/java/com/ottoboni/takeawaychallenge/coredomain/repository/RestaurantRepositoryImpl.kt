@@ -7,17 +7,20 @@ import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
 
 class RestaurantRepositoryImpl(
     private val localDataSource: RestaurantLocalDataSource,
-    private val externalDataSource: RestaurantExternalDataSource
+    private val externalDataSource: RestaurantExternalDataSource,
 ) : RestaurantRepository {
-    override suspend fun getRestaurants(): List<Restaurant>? {
-        TODO("Not yet implemented")
-    }
 
-    override suspend fun toggleFavoriteStatusFor(restaurant: Restaurant): Boolean {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getRestaurants(): List<Restaurant> =
+        localDataSource
+            .getAll()
+            ?.plus(externalDataSource.getRestaurants() ?: emptyList())
+            ?.distinctBy { it.name }
+            ?: externalDataSource.getRestaurants()
+            ?: emptyList()
 
-    override fun observeFavoriteStatusFor(id: Long): LiveData<Boolean> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun toggleFavoriteStatusFor(restaurant: Restaurant): Boolean =
+        localDataSource.toggleFavoriteStatusFor(restaurant = restaurant)
+
+    override fun observeFavoriteStatusFor(restaurant: Restaurant): LiveData<Boolean> =
+        localDataSource.observeFavoriteStatusFor(restaurant = restaurant)
 }

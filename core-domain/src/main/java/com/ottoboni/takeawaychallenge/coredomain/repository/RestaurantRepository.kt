@@ -5,9 +5,9 @@ import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
 
 interface RestaurantRepository {
 
-    suspend fun getRestaurants(): List<Restaurant>?
+    suspend fun getRestaurants(): List<Restaurant>
 
     suspend fun toggleFavoriteStatusFor(restaurant: Restaurant): Boolean
 
-    fun observeFavoriteStatusFor(id: Long): LiveData<Boolean>
+    fun observeFavoriteStatusFor(restaurant: Restaurant): LiveData<Boolean>
 }
