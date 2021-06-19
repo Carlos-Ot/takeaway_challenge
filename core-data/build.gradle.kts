@@ -16,6 +16,4 @@ dependencies {
     implementation(Dependencies.AndroidLifecycle.livedata)
 
     Dependencies.Testing(Dependencies.Testing.Type.UNIT).forEach { testImplementation(it) }
-    Dependencies.Testing(Dependencies.Testing.Type.ANDROID)
-        .forEach { androidTestImplementation(it) }
 }

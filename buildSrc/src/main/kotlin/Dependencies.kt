@@ -7,6 +7,7 @@ object Dependencies {
         const val core_local_storage = ":core-local-storage"
         const val core_data = ":core-data"
         const val shared = ":shared"
+        const val feature_restaurant = ":feature-restaurant"
     }
 
     val modules: List<String> by lazy {
@@ -56,8 +57,22 @@ object Dependencies {
             "com.google.android.material:material:${Versions.AndroidUI.material}"
         private const val fragment =
             "androidx.fragment:fragment-ktx:${Versions.AndroidKTX.fragment}"
+        private const val recyclerView =
+            "androidx.recyclerview:recyclerview:${Versions.AndroidUI.recyclerView}"
+        private const val cardView = "androidx.cardview:cardview:${Versions.AndroidUI.cardView}"
 
-        operator fun invoke() = arrayOf(appCompat, constraintLayout, material, fragment)
+        operator fun invoke() =
+            arrayOf(appCompat, constraintLayout, material, fragment, recyclerView, cardView)
+    }
+
+    object UI {
+        const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
+    }
+
+    object Navigation {
+        const val fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+        const val ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+        const val testing = "androidx.navigation:navigation-testing:${Versions.navigation}"
     }
 
     object AndroidX {
@@ -84,19 +99,17 @@ object Dependencies {
     }
 
     object AndroidLifecycle {
-        private const val extensions =
-            "androidx.lifecycle:lifecycle-extensions:${Versions.AndroidJetPack.lifecycle}"
         const val livedata =
-            "androidx.lifecycle:lifecycle-livedata:${Versions.AndroidJetPack.lifecycle}"
-        private const val livedataKtx =
             "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.AndroidJetPack.lifecycle}"
-        private const val viewModelKtx =
+        private const val viewModel =
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.AndroidJetPack.lifecycle}"
 
         const val compiler =
             "androidx.lifecycle:lifecycle-compiler:${Versions.AndroidJetPack.lifecycle}"
 
-        operator fun invoke() = arrayOf(extensions, livedata, livedataKtx, viewModelKtx)
+        const val testing = "androidx.arch.core:core-testing:${Versions.AndroidJetPack.arch_core}"
+
+        operator fun invoke() = arrayOf(livedata, viewModel)
     }
 
     object Lint {

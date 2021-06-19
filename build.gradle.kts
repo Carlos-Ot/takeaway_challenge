@@ -11,7 +11,7 @@ buildscript {
     dependencies {
         classpath(Config.AndroidClassPath.gradlePlugin)
         classpath(Config.AndroidClassPath.kotlinPlugin)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10")
+        classpath(Config.AndroidClassPath.navigation)
     }
 }
 
