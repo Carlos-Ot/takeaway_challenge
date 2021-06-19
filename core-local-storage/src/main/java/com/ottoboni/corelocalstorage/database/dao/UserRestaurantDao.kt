@@ -1,5 +1,6 @@
 package com.ottoboni.corelocalstorage.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -19,6 +20,6 @@ interface UserRestaurantDao {
     @Query(
         "SELECT * FROM tb_user_restaurant WHERE userId = :userId AND restaurantId = :restaurantId"
     )
-    suspend fun getBy(userId: Long, restaurantId: Long): UserRestaurantEntity?
+    suspend fun selectBy(userId: Long, restaurantId: Long): UserRestaurantEntity?
     /* ktlint-enable max-line-length */
 }

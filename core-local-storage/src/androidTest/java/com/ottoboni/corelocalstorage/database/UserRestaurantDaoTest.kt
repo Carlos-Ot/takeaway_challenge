@@ -41,7 +41,7 @@ class UserRestaurantDaoTest : DaoTest() {
     fun insertAndSelectUserRestaurant() = runBlocking {
         userRestaurantDao.insert(userRestaurantEntity)
 
-        val userRestaurant = userRestaurantDao.getBy(userEntity.id, restaurantEntity.id)
+        val userRestaurant = userRestaurantDao.selectBy(userEntity.id, restaurantEntity.id)
 
         assertThat(userRestaurant).isEqualTo(userRestaurantEntity)
     }
@@ -52,7 +52,7 @@ class UserRestaurantDaoTest : DaoTest() {
 
         userRestaurantDao.delete(userRestaurantEntity)
 
-        assertThat(userRestaurantDao.getBy(userEntity.id, restaurantEntity.id)).isNull()
+        assertThat(userRestaurantDao.selectBy(userEntity.id, restaurantEntity.id)).isNull()
     }
 
     @Test
@@ -61,6 +61,6 @@ class UserRestaurantDaoTest : DaoTest() {
 
         userDao.deleteBy(userEntity.id)
 
-        assertThat(userRestaurantDao.getBy(userEntity.id, restaurantEntity.id)).isNull()
+        assertThat(userRestaurantDao.selectBy(userEntity.id, restaurantEntity.id)).isNull()
     }
 }

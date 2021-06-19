@@ -1,6 +1,8 @@
 package com.example.coredata.datasource
 
+import androidx.lifecycle.LiveData
 import com.example.coredata.domain.model.Restaurant
+import com.ottoboni.corelocalstorage.database.AppDatabase.Companion.GUEST_USER_ID
 
 interface RestaurantLocalDataSource {
 
@@ -11,4 +13,14 @@ interface RestaurantLocalDataSource {
     suspend fun save(restaurant: Restaurant): Long
 
     suspend fun deleteBy(id: Long)
+
+    suspend fun toggleFavoriteStatusFor(
+        userId: Long = GUEST_USER_ID,
+        restaurant: Restaurant,
+    ): Boolean
+
+    fun observeFavoriteStatusFor(
+        userId: Long = GUEST_USER_ID,
+        restaurant: Restaurant,
+    ): LiveData<Boolean>
 }

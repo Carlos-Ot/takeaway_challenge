@@ -85,7 +85,7 @@ object Dependencies {
     object AndroidLifecycle {
         private const val extensions =
             "androidx.lifecycle:lifecycle-extensions:${Versions.AndroidJetPack.lifecycle}"
-        private const val livedata =
+        const val livedata =
             "androidx.lifecycle:lifecycle-livedata:${Versions.AndroidJetPack.lifecycle}"
         private const val livedataKtx =
             "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.AndroidJetPack.lifecycle}"

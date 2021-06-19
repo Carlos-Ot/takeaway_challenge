@@ -35,7 +35,7 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
         private const val NAME = "app_database.db"
         const val VERSION = 1
-        const val GUEST_USER_ID = 1
+        const val GUEST_USER_ID = 1L
 
         fun buildDatabase(context: Context, inMemory: Boolean = false): AppDatabase =
             if (inMemory)

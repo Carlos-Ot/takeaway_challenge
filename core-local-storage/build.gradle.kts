@@ -16,6 +16,8 @@ dependencies {
 
     Dependencies.Moshi().forEach { implementation(it) }
 
+    implementation(Dependencies.AndroidLifecycle.livedata)
+
     Dependencies.Koin().forEach { implementation(it) }
     testImplementation(Dependencies.Koin.test)
 
