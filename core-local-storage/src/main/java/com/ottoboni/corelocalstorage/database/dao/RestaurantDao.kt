@@ -19,7 +19,7 @@ interface RestaurantDao {
     suspend fun selectBy(id: Long): RestaurantEntity?
 
     @Query("SELECT * FROM tb_restaurant")
-    suspend fun selectAll(): List<RestaurantEntity>
+    suspend fun selectAll(): List<RestaurantEntity>?
 
     @Query(
         "DELETE FROM tb_restaurant WHERE id = :id AND :id NOT IN (SELECT restaurantId FROM tb_user_restaurant)"

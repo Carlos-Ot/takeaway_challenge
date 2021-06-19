@@ -10,7 +10,7 @@ class RestaurantLocalDataSourceImpl(
 ) : RestaurantLocalDataSource {
 
     override suspend fun getAll(): List<Restaurant>? =
-        restaurantDao.selectAll().ifEmpty { null }?.map(restaurantMapper::toDomain)
+        restaurantDao.selectAll()?.ifEmpty { null }?.map(restaurantMapper::toDomain)
 
     override suspend fun getBy(id: Long): Restaurant? =
         restaurantDao.selectBy(id)?.let(restaurantMapper::toDomain)

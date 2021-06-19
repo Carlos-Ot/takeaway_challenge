@@ -12,7 +12,7 @@ enum class OpeningStatus {
     companion object {
         fun safeValueOf(type: String): OpeningStatus? =
             try {
-                valueOf(type)
+                valueOf(type.uppercase())
             } catch (e: Exception) {
                 null
             }

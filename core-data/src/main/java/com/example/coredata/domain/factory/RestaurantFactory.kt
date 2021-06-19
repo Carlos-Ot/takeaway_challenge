@@ -8,7 +8,7 @@ import com.ottoboni.corelocalstorage.filestore.data.SortingValuesData
 
 class RestaurantFactory(
     private val openingStatusFactory: OpeningStatusFactory,
-    private val sortingValuesFactory: ModelFactory<SortingValuesData, SortingValues>,
+    private val sortingValuesFactory: SortingValuesFactory,
 ) : ModelFactory<RestaurantData, Restaurant> {
     override fun make(input: RestaurantData) = Restaurant(
         name = input.name?.ifBlank { null },

@@ -9,6 +9,7 @@ dependencies {
     }
 
     Dependencies.Koin().forEach { implementation(it) }
+    testImplementation(Dependencies.Koin.test)
 
     Dependencies.Testing(Dependencies.Testing.Type.UNIT).forEach { testImplementation(it) }
     Dependencies.Testing(Dependencies.Testing.Type.ANDROID)

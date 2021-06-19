@@ -35,6 +35,8 @@ object Dependencies {
         private const val core = "org.koin:koin-core:${Versions.DI.koin}"
         private const val coreExt = "org.koin:koin-core-ext:${Versions.DI.koin}"
 
+        const val test = "org.koin:koin-test:${Versions.DI.koin}"
+
         operator fun invoke() = arrayOf(core, coreExt)
     }
 
