@@ -1,11 +1,13 @@
 package com.ottoboni.takeawaychallenge.di
 
-import com.ottoboni.corelocalstorage.di.LocalStorageModule
+import com.ottoboni.takeawaychallenge.coredata.di.DataModule
+import com.ottoboni.takeawaychallenge.corelocalstorage.di.LocalStorageModule
 
 object ApplicationModules {
 
     private val coreModules = listOf(
-        LocalStorageModule.instance
+        LocalStorageModule.instance,
+        DataModule.instance
     )
 
     val modules = coreModules

@@ -1,5 +1,8 @@
 rootProject.name = "Takeaway Challenge"
 include(
     ":app",
-    ":core-local-storage"
+    ":core-data",
+    ":core-local-storage",
+    ":core-domain"
 )
+include(":shared")

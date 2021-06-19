@@ -1,4 +1,19 @@
+import kotlin.reflect.full.memberProperties
+
 object Dependencies {
+
+    object Module {
+        const val core_domain = ":core-domain"
+        const val core_local_storage = ":core-local-storage"
+        const val core_data = ":core-data"
+        const val shared = ":shared"
+    }
+
+    val modules: List<String> by lazy {
+        Module::class.memberProperties.map {
+            it.name.replace("_", "-")
+        }
+    }
 
     object Kotlin {
         private const val core = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}"
@@ -9,19 +24,19 @@ object Dependencies {
     }
 
     object Coroutines {
-        private const val core =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinVersion}"
-        private const val android =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinVersion}"
-        private const val testing =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinVersion}"
-
-        operator fun invoke() = arrayOf(core, android)
+        const val core =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+        const val android =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+        const val testing =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     }
 
     object Koin {
         private const val core = "org.koin:koin-core:${Versions.DI.koin}"
         private const val coreExt = "org.koin:koin-core-ext:${Versions.DI.koin}"
+
+        const val test = "org.koin:koin-test:${Versions.DI.koin}"
 
         operator fun invoke() = arrayOf(core, coreExt)
     }
@@ -60,10 +75,18 @@ object Dependencies {
         const val testing = "androidx.room:room-testing:${Versions.AndroidJetPack.room}"
     }
 
+    object Moshi {
+        private const val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
+        private const val codeGen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
+        private const val adapters = "com.squareup.moshi:moshi-adapters:${Versions.moshi}"
+
+        operator fun invoke() = arrayOf(moshi, codeGen, adapters)
+    }
+
     object AndroidLifecycle {
         private const val extensions =
             "androidx.lifecycle:lifecycle-extensions:${Versions.AndroidJetPack.lifecycle}"
-        private const val livedata =
+        const val livedata =
             "androidx.lifecycle:lifecycle-livedata:${Versions.AndroidJetPack.lifecycle}"
         private const val livedataKtx =
             "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.AndroidJetPack.lifecycle}"
@@ -74,6 +97,11 @@ object Dependencies {
             "androidx.lifecycle:lifecycle-compiler:${Versions.AndroidJetPack.lifecycle}"
 
         operator fun invoke() = arrayOf(extensions, livedata, livedataKtx, viewModelKtx)
+    }
+
+    object Lint {
+        const val detekt = "io.gitlab.arturbosch.detekt"
+        const val ktLint = "org.jlleitschuh.gradle.ktlint"
     }
 
     object Testing {
@@ -90,13 +118,20 @@ object Dependencies {
         // Android Testing
         private const val androidTestCore = "androidx.test:core:${Versions.Testing.androidTestCore}"
         private const val androidJUnit =
-            "androidx.test.ext:junit:${Versions.Testing.androidTestJUnit}"
-        private const val testRunner = "androidx.test:runner:${Versions.Testing.androidTestJUnit}"
-        private const val testRules = "androidx.test:rules:${Versions.Testing.androidTestJUnit}"
+            "androidx.test.ext:junit-ktx:${Versions.Testing.androidTestJUnit}"
+        private const val testRunner = "androidx.test:runner:${Versions.Testing.androidTestCore}"
+        private const val testRules = "androidx.test:rules:${Versions.Testing.androidTestCore}"
 
         operator fun invoke(type: Type) = when (type) {
             Type.UNIT -> arrayOf(jUnit, archCore, kotlinJUnit, mockk, truth)
-            Type.ANDROID -> arrayOf(androidTestCore, archCore, androidJUnit, testRunner, testRules, truth)
+            Type.ANDROID -> arrayOf(
+                androidTestCore,
+                archCore,
+                androidJUnit,
+                testRunner,
+                testRules,
+                truth
+            )
         }
 
         enum class Type {

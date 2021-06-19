@@ -1,31 +1,13 @@
-plugins {
-    id("com.android.library")
-    id("kotlin-android")
-    id("kotlin-kapt")
-}
-
-android {
-    compileSdkVersion(Config.compileSdk)
-    buildToolsVersion(Config.buildTools)
-
-    defaultConfig {
-        minSdkVersion(Config.minSdkVersion)
-        targetSdkVersion(Config.targetSdkVersion)
-
-        testInstrumentationRunner(Config.AndroidTestRunner.instrumentationTestRunner)
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-}
-
 dependencies {
+    implementation(project(Dependencies.Module.shared))
 
     Dependencies.Kotlin().forEach { implementation(it) }
     Dependencies.AndroidX().forEach { implementation(it) }
-    Dependencies.AndroidLifecycle().forEach { implementation(it) }
+
+    with(Dependencies.Coroutines) {
+        implementation(core)
+        testImplementation(testing)
+    }
 
     with(Dependencies.Room) {
         implementation(runtime)
@@ -34,8 +16,12 @@ dependencies {
         testImplementation(testing)
     }
 
+    Dependencies.Moshi().forEach { implementation(it) }
+
+    implementation(Dependencies.AndroidLifecycle.livedata)
+
     Dependencies.Koin().forEach { implementation(it) }
-    Dependencies.KoinAndroid().forEach { implementation(it) }
+    testImplementation(Dependencies.Koin.test)
 
     Dependencies.Testing(Dependencies.Testing.Type.UNIT).forEach { testImplementation(it) }
     Dependencies.Testing(Dependencies.Testing.Type.ANDROID)
