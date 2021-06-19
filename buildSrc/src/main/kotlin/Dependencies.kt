@@ -6,6 +6,7 @@ object Dependencies {
         const val core_domain = ":core-domain"
         const val core_local_storage = ":core-local-storage"
         const val core_data = ":core-data"
+        const val shared = ":shared"
     }
 
     val modules: List<String> by lazy {

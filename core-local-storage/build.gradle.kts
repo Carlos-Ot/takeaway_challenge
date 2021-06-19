@@ -1,4 +1,6 @@
 dependencies {
+    implementation(project(Dependencies.Module.shared))
+
     Dependencies.Kotlin().forEach { implementation(it) }
     Dependencies.AndroidX().forEach { implementation(it) }
 

@@ -1,7 +1,7 @@
 package com.ottoboni.takeawaychallenge.di
 
-import com.example.coredata.di.DataModule
-import com.ottoboni.corelocalstorage.di.LocalStorageModule
+import com.ottoboni.takeawaychallenge.coredata.di.DataModule
+import com.ottoboni.takeawaychallenge.corelocalstorage.di.LocalStorageModule
 
 object ApplicationModules {
 

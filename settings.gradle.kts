@@ -5,3 +5,4 @@ include(
     ":core-local-storage",
     ":core-domain"
 )
+include(":shared")

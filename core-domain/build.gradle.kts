@@ -1,4 +1,5 @@
 dependencies {
+    implementation(project(Dependencies.Module.shared))
     implementation(project(Dependencies.Module.core_data))
 
     Dependencies.Kotlin().forEach { implementation(it) }
