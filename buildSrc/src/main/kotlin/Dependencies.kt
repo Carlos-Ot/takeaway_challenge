@@ -34,7 +34,7 @@ object Dependencies {
     }
 
     object Koin {
-        private const val core = "org.koin:koin-core:${Versions.DI.koin}"
+        const val core = "org.koin:koin-core:${Versions.DI.koin}"
         private const val coreExt = "org.koin:koin-core-ext:${Versions.DI.koin}"
 
         const val test = "org.koin:koin-test:${Versions.DI.koin}"
@@ -50,12 +50,12 @@ object Dependencies {
     }
 
     object AndroidUI {
-        private const val appCompat = "androidx.appcompat:appcompat:${Versions.AndroidUI.appcompat}"
+        const val appCompat = "androidx.appcompat:appcompat:${Versions.AndroidUI.appcompat}"
         private const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.AndroidUI.constraintLayout}"
         private const val material =
             "com.google.android.material:material:${Versions.AndroidUI.material}"
-        private const val fragment =
+        const val fragment =
             "androidx.fragment:fragment-ktx:${Versions.AndroidKTX.fragment}"
         private const val recyclerView =
             "androidx.recyclerview:recyclerview:${Versions.AndroidUI.recyclerView}"

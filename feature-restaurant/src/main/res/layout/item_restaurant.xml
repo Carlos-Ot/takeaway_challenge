@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/margin_8">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:paddingBottom="@dimen/margin_32"
+            app:cardCornerRadius="@dimen/margin_16"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="@id/cv_store_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_store_icon">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/margin_8">
+
+                <TextView
+                    android:id="@+id/tv_restaurant_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearanceBlackH3"
+                    app:layout_constraintEnd_toStartOf="@id/tv_opening_status"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Lamen San Lamen San Sadd" />
+
+                <TextView
+                    android:id="@+id/tv_opening_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:textAppearance="@style/TextAppearanceBlackH8"
+                    android:textColor="@color/medium_forest_green"
+                    app:layout_constraintBaseline_toBaselineOf="@id/tv_restaurant_name"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_restaurant_name"
+                    app:layout_constraintEnd_toStartOf="@id/b_restaurant_title"
+                    app:layout_constraintStart_toEndOf="@id/tv_restaurant_name"
+                    app:layout_constraintTop_toTopOf="@id/tv_restaurant_name"
+                    tools:text="(Open)" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/b_restaurant_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="start"
+                    app:constraint_referenced_ids="ib_restaurant_save" />
+
+                <ImageButton
+                    android:id="@+id/ib_restaurant_save"
+                    android:layout_width="@dimen/size_32"
+                    android:layout_height="@dimen/size_32"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:background="null"
+                    android:importantForAccessibility="no"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/favorite_button_status_selector" />
+
+                <ImageView
+                    android:id="@+id/iv_restaurant_rating_average_icon"
+                    android:layout_width="@dimen/size_16"
+                    android:layout_height="@dimen/size_16"
+                    android:layout_marginTop="@dimen/margin_4"
+                    app:layout_constraintStart_toStartOf="@id/tv_restaurant_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_restaurant_name"
+                    app:srcCompat="@drawable/ic_rating" />
+
+                <TextView
+                    android:id="@+id/tv_restaurant_rating_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:textAppearance="@style/TextAppearanceBlackH7"
+                    android:textColor="@color/cantaloupe"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_rating_average_icon"
+                    app:layout_constraintStart_toEndOf="@id/iv_restaurant_rating_average_icon"
+                    app:layout_constraintTop_toTopOf="@id/iv_restaurant_rating_average_icon"
+                    tools:text="4.2" />
+
+
+                <TextView
+                    android:id="@+id/tv_restaurant_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:drawablePadding="@dimen/margin_4"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearanceBlackH7"
+                    android:textColor="@color/grey_light"
+                    android:textSize="@dimen/text_size_h8"
+                    app:drawableStartCompat="@drawable/ic_distance"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_restaurant_price"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/tv_restaurant_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_restaurant_rating_average"
+                    tools:text="1.2km" />
+
+                <TextView
+                    android:id="@+id/tv_restaurant_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:drawablePadding="@dimen/margin_4"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearanceBlackH7"
+                    android:textColor="@color/grey_light"
+                    android:textSize="@dimen/text_size_h8"
+                    app:drawableStartCompat="@drawable/ic_min_cost"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tv_restaurant_delivery_costs"
+                    app:layout_constraintStart_toEndOf="@id/tv_restaurant_distance"
+                    app:layout_constraintTop_toBottomOf="@id/tv_restaurant_rating_average"
+                    tools:text="€1.30" />
+
+                <TextView
+                    android:id="@+id/tv_restaurant_delivery_costs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:drawablePadding="@dimen/margin_4"
+                    android:gravity="center"
+                    android:textAppearance="@style/TextAppearanceBlackH7"
+                    android:textColor="@color/grey_light"
+                    android:textSize="@dimen/text_size_h8"
+                    app:drawableStartCompat="@drawable/ic_delivery_costs"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/ib_restaurant_save"
+                    app:layout_constraintStart_toEndOf="@id/tv_restaurant_price"
+                    app:layout_constraintTop_toBottomOf="@id/tv_restaurant_rating_average"
+                    tools:text="€2.00" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_store_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_marginTop="@dimen/margin_8"
+            android:translationZ="1dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_storefront" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

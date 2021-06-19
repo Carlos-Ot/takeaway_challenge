@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ToolbarTextAppearance">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_toolbar</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearanceBlackH2">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_h2</item>
+        <item name="android:textColor">@color/black_nero</item>
+    </style>
+
+    <style name="TextAppearanceBlackH3">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="android:textColor">@color/black_nero</item>
+    </style>
+
+    <style name="TextAppearanceBlackH4">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_h4</item>
+        <item name="android:textColor">@color/black_nero</item>
+    </style>
+
+    <style name="TextAppearanceBlackH6">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_h6</item>
+        <item name="android:textColor">@color/black_nero</item>
+    </style>
+
+    <style name="TextAppearanceBlackH7">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_h7</item>
+        <item name="android:textColor">@color/black_nero</item>
+    </style>
+
+    <style name="TextAppearanceBlackH8">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_h8</item>
+        <item name="android:textColor">@color/black_nero</item>
+    </style>
+</resources>

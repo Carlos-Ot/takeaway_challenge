@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="onyx">#121212</color>
+    <color name="chili_pepper">#BF1324</color>
+    <color name="cadmium_red">#EC061D</color>
+    <color name="black_nero">#222222</color>
+    <color name="cantaloupe">#FFA62F</color>
+    <color name="grey_light">#999999</color>
+    <color name="medium_forest_green">#2E7D32</color>
+</resources>
