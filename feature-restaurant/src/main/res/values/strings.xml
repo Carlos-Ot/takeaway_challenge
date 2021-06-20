@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="restaurant_opening_status_open">(Open)</string>
+    <string name="restaurant_opening_status_order_ahead">(Order Ahead)</string>
+    <string name="restaurant_opening_status_closed">(Closed)</string>
+
+    <!-- Restaurant Item -->
+    <string name="restaurant_distance">%.2f km</string>
+    <string name="restaurant_currency">€%.2f</string>
+
+    <!-- Restaurant Details -->
+    <string name="restaurant_details_average_rating">(%.1f)</string>
+    <string name="restaurant_details_distance">Distance %.2fkm</string>
+    <string name="restaurant_details_min_cost">Min. Cost € %.2f</string>
+    <string name="restaurant_details_delivery_fee">Delivery Fee € %.2f</string>
+    <string name="restaurant_details_newest">Newest (%.1f)</string>
+    <string name="restaurant_details_popularity">Popularity (%.1f)</string>
+    <string name="restaurant_details_best_match">Best Match (%.1f)</string>
+    <string name="restaurant_details_avg_price">Avg. Price € %.2f</string>
+
+    <!-- Restaurant List -->
+    <string name="restaurant_list_filter_text">Sorting Options (%s)</string>
+</resources>
