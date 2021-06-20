@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_16"
             android:layout_marginEnd="@dimen/margin_16"
+            android:onClick="@{ () -> viewModel.onItemClicked() }"
             android:paddingBottom="@dimen/margin_32"
             app:cardCornerRadius="@dimen/margin_16"
             app:cardUseCompatPadding="true"
@@ -34,7 +35,7 @@
 
                 <TextView
                     android:id="@+id/tv_restaurant_name"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_40"
                     android:layout_marginTop="@dimen/margin_8"
@@ -42,12 +43,12 @@
                     android:maxLines="1"
                     android:text="@{ viewModel.name }"
                     android:textAppearance="@style/TextAppearanceBlackH3"
+                    app:layout_constrainedWidth="true"
                     app:layout_constraintEnd_toStartOf="@id/tv_opening_status"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintWidth_default="wrap"
                     tools:text="Lamen San" />
 
                 <TextView
@@ -81,6 +82,7 @@
                     android:layout_marginEnd="@dimen/margin_16"
                     android:background="@null"
                     android:importantForAccessibility="no"
+                    android:onClick="@{ () -> viewModel.onBookmarkButtonClicked() }"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/favorite_button_status_selector" />

@@ -31,6 +31,7 @@ class RestaurantListFragment : BaseFragment() {
         .root
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 
         setupViews()

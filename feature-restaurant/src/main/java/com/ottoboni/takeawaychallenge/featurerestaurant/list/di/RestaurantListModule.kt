@@ -9,7 +9,11 @@ import org.koin.dsl.module
 object RestaurantListModule {
 
     val instance = module {
-        viewModel { RestaurantListViewModel() }
+        viewModel {
+            RestaurantListViewModel(
+                restaurantRepository = get()
+            )
+        }
 
         viewModel { params ->
             RestaurantItemViewModel(

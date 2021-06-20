@@ -6,6 +6,7 @@ dependencies {
         implementation(appCompat)
         implementation(fragment)
         implementation(recyclerView)
+        implementation(material)
     }
 
     implementation(Dependencies.AndroidLifecycle.livedata)

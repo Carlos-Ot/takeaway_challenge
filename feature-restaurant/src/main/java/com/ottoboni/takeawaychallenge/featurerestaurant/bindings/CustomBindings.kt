@@ -12,18 +12,22 @@ import com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus.
 import com.ottoboni.takeawaychallenge.featurerestaurant.R
 
 @BindingAdapter("openingStatus")
-fun TextView.setOpeningStatus(openingStatus: OpeningStatus) {
+fun TextView.setOpeningStatus(openingStatus: OpeningStatus?) {
     when (openingStatus) {
         OPEN -> {
             setText(R.string.restaurant_opening_status_open)
             setTextColor(context.getColor(R.color.medium_forest_green))
         }
         ORDER_AHEAD -> {
-            setText(R.string.restaurant_opening_status_open)
+            setText(R.string.restaurant_opening_status_order_ahead)
             setTextColor(context.getColor(R.color.cantaloupe))
         }
         CLOSED -> {
-            setText(R.string.restaurant_opening_status_open)
+            setText(R.string.restaurant_opening_status_closed)
+            setTextColor(context.getColor(R.color.chili_pepper))
+        }
+        else -> {
+            setText(R.string.restaurant_opening_status_closed)
             setTextColor(context.getColor(R.color.chili_pepper))
         }
     }

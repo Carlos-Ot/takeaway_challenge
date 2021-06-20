@@ -44,7 +44,7 @@ object Dependencies {
         const val appCompat = "androidx.appcompat:appcompat:${Versions.AndroidUI.appcompat}"
         private const val constraintLayout =
             "androidx.constraintlayout:constraintlayout:${Versions.AndroidUI.constraintLayout}"
-        private const val material =
+        const val material =
             "com.google.android.material:material:${Versions.AndroidUI.material}"
         const val fragment =
             "androidx.fragment:fragment-ktx:${Versions.AndroidKTX.fragment}"
