@@ -1,18 +1,14 @@
 package com.ottoboni.takeawaychallenge.coredata.datasource
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import com.google.common.truth.Truth.assertThat
 import com.ottoboni.takeawaychallenge.coredata.Shared.mockRestaurant
 import com.ottoboni.takeawaychallenge.coredata.Shared.mockRestaurantEntity
 import com.ottoboni.takeawaychallenge.coredata.Shared.mockRestaurantEntityList
-import com.ottoboni.takeawaychallenge.coredata.domain.mapper.RestaurantMapper
-import com.google.common.truth.Truth.assertThat
 import com.ottoboni.takeawaychallenge.coredata.Shared.mockUserRestaurantEntity
-import com.ottoboni.takeawaychallenge.coredata.datasource.RestaurantLocalDataSourceImpl
+import com.ottoboni.takeawaychallenge.coredata.domain.mapper.RestaurantMapper
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.dao.RestaurantDao
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.dao.UserRestaurantDao
-import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.RestaurantEntity
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coJustRun
@@ -20,7 +16,6 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
-import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

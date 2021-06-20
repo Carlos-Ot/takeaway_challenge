@@ -8,7 +8,6 @@ import com.ottoboni.takeawaychallenge.coredomain.mockRestaurantList
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -38,7 +37,8 @@ class RestaurantRepositoryTest {
         val favoriteRestaurantSize = 5
         val restaurantSize = 10
         coEvery { localDataSource.getAll() } returns mockFavoriteRestaurantList(
-            favoriteRestaurantSize)
+            favoriteRestaurantSize
+        )
         coEvery { externalDataSource.getRestaurants() } returns mockRestaurantList(restaurantSize)
 
         val restaurants = repository.getRestaurants()

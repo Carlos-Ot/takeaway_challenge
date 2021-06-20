@@ -2,7 +2,6 @@ package com.ottoboni.takeawaychallenge.corelocalstorage.filestore
 
 import android.content.Context
 import android.content.res.AssetManager.ACCESS_BUFFER
-import android.content.res.AssetManager.ACCESS_STREAMING
 import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.data.RestaurantListData
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi

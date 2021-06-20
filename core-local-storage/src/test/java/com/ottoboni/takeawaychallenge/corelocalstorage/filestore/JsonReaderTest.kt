@@ -1,20 +1,16 @@
 package com.ottoboni.takeawaychallenge.corelocalstorage.filestore
 
 import android.content.Context
-import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.JsonReaderImpl
 import com.squareup.moshi.Moshi
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
-import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
-import io.mockk.mockk
+import java.io.IOException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
-import java.io.IOException
-import java.io.InputStream
 
 @ExperimentalCoroutinesApi
 class JsonReaderTest {

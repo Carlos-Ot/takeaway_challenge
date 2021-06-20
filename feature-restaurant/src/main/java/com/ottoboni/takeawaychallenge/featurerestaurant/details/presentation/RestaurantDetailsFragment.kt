@@ -1,12 +1,10 @@
 package com.ottoboni.takeawaychallenge.featurerestaurant.details.presentation
 
 import android.os.Bundle
-import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import com.ottoboni.takeawaychallenge.featurerestaurant.R
 import com.ottoboni.takeawaychallenge.featurerestaurant.databinding.FragmentRestaurantDetailsBinding
 import com.ottoboni.takeawaychallenge.featurerestaurant.details.di.RestaurantDetailsModule
 import com.ottoboni.takeawaychallenge.shared.base.BaseFragment

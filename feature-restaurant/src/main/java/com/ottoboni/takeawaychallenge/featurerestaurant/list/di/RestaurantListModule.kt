@@ -1,6 +1,5 @@
 package com.ottoboni.takeawaychallenge.featurerestaurant.list.di
 
-import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
 import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.RestaurantItemViewModel
 import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.RestaurantListViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel

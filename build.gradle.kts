@@ -52,7 +52,6 @@ fun Project.configureLibraryModules() {
     detekt {
         failFast = true
         buildUponDefaultConfig = true
-        config = files("../config/detekt/detekt.yml")
 
         reports {
             xml {

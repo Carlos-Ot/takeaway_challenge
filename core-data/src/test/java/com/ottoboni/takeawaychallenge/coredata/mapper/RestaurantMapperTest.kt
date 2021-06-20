@@ -1,11 +1,11 @@
 package com.ottoboni.takeawaychallenge.coredata.mapper
 
+import com.google.common.truth.Truth.assertThat
 import com.ottoboni.takeawaychallenge.coredata.domain.mapper.RestaurantMapper
 import com.ottoboni.takeawaychallenge.coredata.domain.mapper.SortingValuesMapper
 import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
 import com.ottoboni.takeawaychallenge.coredata.domain.model.SortingValues
 import com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus
-import com.google.common.truth.Truth.assertThat
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.RestaurantEntity
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.SortingValuesEntity
 import org.junit.Test
@@ -51,11 +51,17 @@ class RestaurantMapperTest {
         assertThat(restaurantEntity.status).isEqualTo(restaurant.status.toString())
         assertThat(restaurantEntity.sortingValues?.bestMatch).isEqualTo(sortingValues.bestMatch)
         assertThat(restaurantEntity.sortingValues?.newest).isEqualTo(sortingValues.newest)
-        assertThat(restaurantEntity.sortingValues?.ratingAverage).isEqualTo(sortingValues.ratingAverage)
+        assertThat(restaurantEntity.sortingValues?.ratingAverage).isEqualTo(
+            sortingValues.ratingAverage
+        )
         assertThat(restaurantEntity.sortingValues?.distance).isEqualTo(sortingValues.distance)
         assertThat(restaurantEntity.sortingValues?.popularity).isEqualTo(sortingValues.popularity)
-        assertThat(restaurantEntity.sortingValues?.averageProductPrice).isEqualTo(sortingValues.averageProductPrice)
-        assertThat(restaurantEntity.sortingValues?.deliveryCosts).isEqualTo(sortingValues.deliveryCosts)
+        assertThat(restaurantEntity.sortingValues?.averageProductPrice).isEqualTo(
+            sortingValues.averageProductPrice
+        )
+        assertThat(restaurantEntity.sortingValues?.deliveryCosts).isEqualTo(
+            sortingValues.deliveryCosts
+        )
         assertThat(restaurantEntity.sortingValues?.minCost).isEqualTo(sortingValues.minCost)
     }
 
@@ -73,11 +79,17 @@ class RestaurantMapperTest {
         assertThat(restaurant.status.toString()).isEqualTo(restaurantEntity.status)
         assertThat(restaurant.sortingValues?.bestMatch).isEqualTo(sortingValuesEntity.bestMatch)
         assertThat(restaurant.sortingValues?.newest).isEqualTo(sortingValuesEntity.newest)
-        assertThat(restaurant.sortingValues?.ratingAverage).isEqualTo(sortingValuesEntity.ratingAverage)
+        assertThat(restaurant.sortingValues?.ratingAverage).isEqualTo(
+            sortingValuesEntity.ratingAverage
+        )
         assertThat(restaurant.sortingValues?.distance).isEqualTo(sortingValuesEntity.distance)
         assertThat(restaurant.sortingValues?.popularity).isEqualTo(sortingValuesEntity.popularity)
-        assertThat(restaurant.sortingValues?.averageProductPrice).isEqualTo(sortingValuesEntity.averageProductPrice)
-        assertThat(restaurant.sortingValues?.deliveryCosts).isEqualTo(sortingValuesEntity.deliveryCosts)
+        assertThat(restaurant.sortingValues?.averageProductPrice).isEqualTo(
+            sortingValuesEntity.averageProductPrice
+        )
+        assertThat(restaurant.sortingValues?.deliveryCosts).isEqualTo(
+            sortingValuesEntity.deliveryCosts
+        )
         assertThat(restaurant.sortingValues?.minCost).isEqualTo(sortingValuesEntity.minCost)
     }
 

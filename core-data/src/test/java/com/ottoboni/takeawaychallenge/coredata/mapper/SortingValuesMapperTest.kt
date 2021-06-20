@@ -1,8 +1,8 @@
 package com.ottoboni.takeawaychallenge.coredata.mapper
 
+import com.google.common.truth.Truth.assertThat
 import com.ottoboni.takeawaychallenge.coredata.domain.mapper.SortingValuesMapper
 import com.ottoboni.takeawaychallenge.coredata.domain.model.SortingValues
-import com.google.common.truth.Truth.assertThat
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.SortingValuesEntity
 import org.junit.Test
 
@@ -30,7 +30,9 @@ class SortingValuesMapperTest {
         assertThat(sortingValuesEntity.ratingAverage).isEqualTo(sortingValues.ratingAverage)
         assertThat(sortingValuesEntity.distance).isEqualTo(sortingValues.distance)
         assertThat(sortingValuesEntity.popularity).isEqualTo(sortingValues.popularity)
-        assertThat(sortingValuesEntity.averageProductPrice).isEqualTo(sortingValues.averageProductPrice)
+        assertThat(sortingValuesEntity.averageProductPrice).isEqualTo(
+            sortingValues.averageProductPrice
+        )
         assertThat(sortingValuesEntity.deliveryCosts).isEqualTo(sortingValues.deliveryCosts)
         assertThat(sortingValuesEntity.minCost).isEqualTo(sortingValues.minCost)
     }
@@ -55,7 +57,9 @@ class SortingValuesMapperTest {
         assertThat(sortingValues.ratingAverage).isEqualTo(sortingValuesEntity.ratingAverage)
         assertThat(sortingValues.distance).isEqualTo(sortingValuesEntity.distance)
         assertThat(sortingValues.popularity).isEqualTo(sortingValuesEntity.popularity)
-        assertThat(sortingValues.averageProductPrice).isEqualTo(sortingValuesEntity.averageProductPrice)
+        assertThat(sortingValues.averageProductPrice).isEqualTo(
+            sortingValuesEntity.averageProductPrice
+        )
         assertThat(sortingValues.deliveryCosts).isEqualTo(sortingValuesEntity.deliveryCosts)
         assertThat(sortingValues.minCost).isEqualTo(sortingValuesEntity.minCost)
     }

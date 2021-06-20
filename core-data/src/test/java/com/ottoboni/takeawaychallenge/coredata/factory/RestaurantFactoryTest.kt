@@ -1,9 +1,9 @@
 package com.ottoboni.takeawaychallenge.coredata.factory
 
+import com.google.common.truth.Truth.assertThat
 import com.ottoboni.takeawaychallenge.coredata.domain.factory.OpeningStatusFactory
 import com.ottoboni.takeawaychallenge.coredata.domain.factory.RestaurantFactory
 import com.ottoboni.takeawaychallenge.coredata.domain.factory.SortingValuesFactory
-import com.google.common.truth.Truth.assertThat
 import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.data.RestaurantData
 import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.data.SortingValuesData
 import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.data.enums.OpeningStatusData
@@ -32,7 +32,6 @@ class RestaurantFactoryTest {
             sortingValues = null
         )
 
-
         val restaurant = factory.make(restaurantData)
 
         assertThat(restaurant.name).isNull()
@@ -50,15 +49,23 @@ class RestaurantFactoryTest {
         val restaurant = factory.make(restaurantData)
 
         assertThat(restaurant.name).isEqualTo(restaurantData.name)
-        assertThat(restaurant.status.toString()
-            .uppercase()).isEqualTo(restaurantData.status.toString())
+        assertThat(
+            restaurant.status.toString()
+                .uppercase()
+        ).isEqualTo(restaurantData.status.toString())
         assertThat(restaurant.sortingValues?.bestMatch).isEqualTo(sortingValuesData.bestMatch)
         assertThat(restaurant.sortingValues?.newest).isEqualTo(sortingValuesData.newest)
-        assertThat(restaurant.sortingValues?.ratingAverage).isEqualTo(sortingValuesData.ratingAverage)
+        assertThat(restaurant.sortingValues?.ratingAverage).isEqualTo(
+            sortingValuesData.ratingAverage
+        )
         assertThat(restaurant.sortingValues?.distance).isEqualTo(sortingValuesData.distance)
         assertThat(restaurant.sortingValues?.popularity).isEqualTo(sortingValuesData.popularity)
-        assertThat(restaurant.sortingValues?.averageProductPrice).isEqualTo(sortingValuesData.averageProductPrice)
-        assertThat(restaurant.sortingValues?.deliveryCosts).isEqualTo(sortingValuesData.deliveryCosts)
+        assertThat(restaurant.sortingValues?.averageProductPrice).isEqualTo(
+            sortingValuesData.averageProductPrice
+        )
+        assertThat(restaurant.sortingValues?.deliveryCosts).isEqualTo(
+            sortingValuesData.deliveryCosts
+        )
         assertThat(restaurant.sortingValues?.minCost).isEqualTo(sortingValuesData.minCost)
     }
 

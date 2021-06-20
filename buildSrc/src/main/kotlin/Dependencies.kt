@@ -37,7 +37,7 @@ object Dependencies {
         const val core = "io.insert-koin:koin-core:${Versions.DI.koin}"
         const val android = "io.insert-koin:koin-android:${Versions.DI.koin}"
         const val androidViewModel = "io.insert-koin:koin-android-viewmodel:${Versions.DI.koin}"
-        const val test = "io.insert-koin:koin-test:${Versions.DI.koin}"
+        const val test = "io.insert-koin:koin-test-junit4:${Versions.DI.koin}"
     }
 
     object AndroidUI {

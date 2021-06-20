@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.RestaurantEntity
-import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.UserRestaurantEntity
 
 @Dao
 interface RestaurantDao {
@@ -34,7 +33,9 @@ interface RestaurantDao {
     @Query("DELETE FROM tb_restaurant")
     suspend fun deleteAll()
 
-    @Query("SELECT R.id, R.name, R.status, R.best_match, R.newest, R.rating_average, R.distance, R.popularity, R.average_product_price, R.delivery_costs, R.min_cost  FROM tb_restaurant AS R INNER JOIN tb_user_restaurant AS UR ON R.id = UR.restaurantId WHERE UR.userId = :userId AND R.name = :restaurantName")
+    @Query(
+        "SELECT R.id, R.name, R.status, R.best_match, R.newest, R.rating_average, R.distance, R.popularity, R.average_product_price, R.delivery_costs, R.min_cost  FROM tb_restaurant AS R INNER JOIN tb_user_restaurant AS UR ON R.id = UR.restaurantId WHERE UR.userId = :userId AND R.name = :restaurantName"
+    )
     fun observeUserRestaurantBy(userId: Long, restaurantName: String): LiveData<RestaurantEntity?>
     /* ktlint-enable max-line-length */
 }

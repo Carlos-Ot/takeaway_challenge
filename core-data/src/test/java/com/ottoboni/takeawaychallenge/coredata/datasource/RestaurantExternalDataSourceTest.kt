@@ -1,13 +1,10 @@
 package com.ottoboni.takeawaychallenge.coredata.datasource
 
+import com.google.common.truth.Truth.assertThat
 import com.ottoboni.takeawaychallenge.coredata.Shared.mockRestaurant
 import com.ottoboni.takeawaychallenge.coredata.Shared.mockRestaurantListData
 import com.ottoboni.takeawaychallenge.coredata.domain.factory.RestaurantFactory
-import com.google.common.truth.Truth.assertThat
-import com.ottoboni.takeawaychallenge.coredata.datasource.RestaurantExternalDataSourceImpl
 import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.JsonReader
-import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.JsonReaderImpl
-import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.data.RestaurantListData
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -16,11 +13,11 @@ import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.verify
+import java.io.IOException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
 import org.junit.Test
-import java.io.IOException
 
 @ExperimentalCoroutinesApi
 class RestaurantExternalDataSourceTest {

@@ -1,7 +1,7 @@
 package com.ottoboni.takeawaychallenge.coredata.factory
 
-import com.ottoboni.takeawaychallenge.coredata.domain.factory.SortingValuesFactory
 import com.google.common.truth.Truth.assertThat
+import com.ottoboni.takeawaychallenge.coredata.domain.factory.SortingValuesFactory
 import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.data.SortingValuesData
 import org.junit.Test
 
@@ -54,7 +54,9 @@ class SortingValuesFactoryTest {
         assertThat(sortingValues.ratingAverage).isEqualTo(nonEmptySortingValuesData.ratingAverage)
         assertThat(sortingValues.distance).isEqualTo(nonEmptySortingValuesData.distance)
         assertThat(sortingValues.popularity).isEqualTo(nonEmptySortingValuesData.popularity)
-        assertThat(sortingValues.averageProductPrice).isEqualTo(nonEmptySortingValuesData.averageProductPrice)
+        assertThat(sortingValues.averageProductPrice).isEqualTo(
+            nonEmptySortingValuesData.averageProductPrice
+        )
         assertThat(sortingValues.deliveryCosts).isEqualTo(nonEmptySortingValuesData.deliveryCosts)
         assertThat(sortingValues.minCost).isEqualTo(nonEmptySortingValuesData.minCost)
     }

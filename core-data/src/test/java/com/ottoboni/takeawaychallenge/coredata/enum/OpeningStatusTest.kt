@@ -1,7 +1,7 @@
 package com.ottoboni.takeawaychallenge.coredata.enum
 
-import com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus
 import com.google.common.truth.Truth.assertThat
+import com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus
 import org.junit.Test
 
 class OpeningStatusTest {

@@ -13,7 +13,7 @@ enum class OpeningStatus {
         fun safeValueOf(type: String): OpeningStatus? =
             try {
                 valueOf(type.uppercase())
-            } catch (e: Exception) {
+            } catch (e: IllegalArgumentException) {
                 null
             }
     }

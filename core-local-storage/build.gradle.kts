@@ -22,6 +22,7 @@ dependencies {
 
     with(Dependencies.Koin) {
         implementation(core)
+        implementation(android)
         testImplementation(test)
     }
 

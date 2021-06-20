@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
 import com.ottoboni.takeawaychallenge.featurerestaurant.RestaurantNavGraphDirections

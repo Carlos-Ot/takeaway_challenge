@@ -1,7 +1,6 @@
 package com.ottoboni.takeawaychallenge.coredata.domain.model
 
 import android.os.Parcelable
-import androidx.versionedparcelable.VersionedParcelize
 import com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus
 import kotlinx.android.parcel.Parcelize
 

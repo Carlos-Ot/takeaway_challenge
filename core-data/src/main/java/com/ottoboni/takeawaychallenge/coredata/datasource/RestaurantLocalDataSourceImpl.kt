@@ -1,6 +1,5 @@
 package com.ottoboni.takeawaychallenge.coredata.datasource
 
-import androidx.lifecycle.LiveData
 import com.ottoboni.takeawaychallenge.coredata.domain.mapper.RestaurantMapper
 import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.dao.RestaurantDao
@@ -40,10 +39,8 @@ class RestaurantLocalDataSourceImpl(
         }
     }
 
-    // TODO: To be Tested
     override fun observeFavoriteStatusFor(userId: Long, restaurant: Restaurant) =
         restaurantDao
             .observeUserRestaurantBy(userId, restaurant.name ?: "")
             .map { it != null }
 }
-
