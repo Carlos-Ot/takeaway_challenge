@@ -9,12 +9,23 @@
         <entry key="feature-restaurant/src/main/res/drawable/ic_bookmark_selected.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_delivery_costs.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_delivery_costs_1.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_delivery_costs_medium.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_distance.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_distance_medium.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_min_cost.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_min_cost_medium.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_newest.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_price.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_rating.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_restaurant_details_bookmark_default.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_restaurant_details_bookmark_selected.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_shopping_bag.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_storefront.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_thumb_up.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_trending_up.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/restaurant_details_favorite_button_status_selector.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/layout/activity_restaurant.xml" value="0.4036458333333333" />
+        <entry key="feature-restaurant/src/main/res/layout/fragment_restaurant_details.xml" value="0.5" />
         <entry key="feature-restaurant/src/main/res/layout/fragment_restaurant_list.xml" value="0.429126213592233" />
         <entry key="feature-restaurant/src/main/res/layout/item_restaurant.xml" value="0.6326836581709145" />
       </map>

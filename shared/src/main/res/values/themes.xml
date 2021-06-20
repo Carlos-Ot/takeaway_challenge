@@ -27,6 +27,12 @@
         <item name="android:textSize">@dimen/text_size_toolbar</item>
     </style>
 
+    <style name="TextAppearanceBlackH1">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/text_size_h1</item>
+        <item name="android:textColor">@color/black_nero</item>
+    </style>
+
     <style name="TextAppearanceBlackH2">
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">@dimen/text_size_h2</item>
