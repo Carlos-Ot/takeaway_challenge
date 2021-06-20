@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 class RestaurantItemViewModel(
     private val restaurant: Restaurant,
     private val restaurantRepository: RestaurantRepository,
+    private val restaurantListMediator: RestaurantListMediator,
 ) : ViewModel() {
 
     val name: String get() = restaurant.name.orEmpty()
@@ -34,7 +35,8 @@ class RestaurantItemViewModel(
 
     fun onBookmarkButtonClicked() {
         viewModelScope.launch {
-            restaurantRepository.toggleFavoriteStatusFor(restaurant)
+            restaurant.isFavorite = restaurantRepository.toggleFavoriteStatusFor(restaurant)
+            restaurantListMediator.onToggleFavoriteItem()
         }
     }
 
