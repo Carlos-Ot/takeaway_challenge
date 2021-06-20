@@ -6,16 +6,21 @@ android {
 
 dependencies {
     implementation(project(Dependencies.Module.shared))
+    implementation(project(Dependencies.Module.core_local_storage))
     implementation(project(Dependencies.Module.core_data))
+    implementation(project(Dependencies.Module.core_domain))
+    implementation(project(Dependencies.Module.feature_restaurant))
 
     Dependencies.Kotlin().forEach { implementation(it) }
     Dependencies.AndroidX().forEach { implementation(it) }
     Dependencies.AndroidUI().forEach { implementation(it) }
     Dependencies.AndroidLifecycle().forEach { implementation(it) }
 
-    Dependencies.Koin().forEach { implementation(it) }
-    Dependencies.KoinAndroid().forEach { implementation(it) }
-    testImplementation(Dependencies.Koin.test)
+    with(Dependencies.Koin) {
+        implementation(core)
+        implementation(android)
+        testImplementation(test)
+    }
 
     Dependencies.Testing(Dependencies.Testing.Type.UNIT).forEach { testImplementation(it) }
     Dependencies.Testing(Dependencies.Testing.Type.ANDROID)

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="restaurant_opening_status_open">(Open)</string>
+    <string name="restaurant_opening_status_order_ahead">(Order Ahead)</string>
+    <string name="restaurant_opening_status_closed">(Closed)</string>
+    <string name="restaurant_distance">%skm</string>
+    <string name="restaurant_currency">€%d</string>
+</resources>

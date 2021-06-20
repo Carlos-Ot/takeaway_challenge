@@ -5,6 +5,7 @@ dependencies {
     with(Dependencies.AndroidUI) {
         implementation(appCompat)
         implementation(fragment)
+        implementation(recyclerView)
     }
 
     implementation(Dependencies.AndroidLifecycle.livedata)

@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.RestaurantItemViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,8 +30,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/margin_8">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/tv_restaurant_name"
@@ -34,16 +40,19 @@
                     android:layout_marginTop="@dimen/margin_8"
                     android:ellipsize="end"
                     android:maxLines="1"
+                    android:text="@{ viewModel.name }"
                     android:textAppearance="@style/TextAppearanceBlackH3"
                     app:layout_constraintEnd_toStartOf="@id/tv_opening_status"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Lamen San Lamen San Sadd" />
+                    app:layout_constraintWidth_default="wrap"
+                    tools:text="Lamen San" />
 
                 <TextView
                     android:id="@+id/tv_opening_status"
+                    openingStatus="@{ viewModel.openingStatus }"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_4"
@@ -65,11 +74,12 @@
 
                 <ImageButton
                     android:id="@+id/ib_restaurant_save"
+                    toggleStatus="@{ viewModel.isFavorite }"
                     android:layout_width="@dimen/size_32"
                     android:layout_height="@dimen/size_32"
                     android:layout_marginTop="@dimen/margin_8"
                     android:layout_marginEnd="@dimen/margin_16"
-                    android:background="null"
+                    android:background="@null"
                     android:importantForAccessibility="no"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -89,6 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_4"
+                    android:text="@{ viewModel.averageRating }"
                     android:textAppearance="@style/TextAppearanceBlackH7"
                     android:textColor="@color/cantaloupe"
                     android:textStyle="bold"
@@ -105,12 +116,13 @@
                     android:layout_marginTop="@dimen/margin_4"
                     android:drawablePadding="@dimen/margin_4"
                     android:gravity="center"
+                    android:text="@{ @string/restaurant_distance(viewModel.distance) }"
                     android:textAppearance="@style/TextAppearanceBlackH7"
                     android:textColor="@color/grey_light"
                     android:textSize="@dimen/text_size_h8"
                     app:drawableStartCompat="@drawable/ic_distance"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/tv_restaurant_price"
+                    app:layout_constraintBottom_toTopOf="@id/g_restaurant_bottom_margin"
+                    app:layout_constraintEnd_toStartOf="@id/tv_restaurant_min_cost"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="@id/tv_restaurant_name"
@@ -118,18 +130,19 @@
                     tools:text="1.2km" />
 
                 <TextView
-                    android:id="@+id/tv_restaurant_price"
+                    android:id="@+id/tv_restaurant_min_cost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_16"
                     android:layout_marginTop="@dimen/margin_4"
                     android:drawablePadding="@dimen/margin_4"
                     android:gravity="center"
+                    android:text="@{ @string/restaurant_currency(viewModel.minCost) }"
                     android:textAppearance="@style/TextAppearanceBlackH7"
                     android:textColor="@color/grey_light"
                     android:textSize="@dimen/text_size_h8"
                     app:drawableStartCompat="@drawable/ic_min_cost"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/g_restaurant_bottom_margin"
                     app:layout_constraintEnd_toStartOf="@id/tv_restaurant_delivery_costs"
                     app:layout_constraintStart_toEndOf="@id/tv_restaurant_distance"
                     app:layout_constraintTop_toBottomOf="@id/tv_restaurant_rating_average"
@@ -143,15 +156,24 @@
                     android:layout_marginTop="@dimen/margin_4"
                     android:drawablePadding="@dimen/margin_4"
                     android:gravity="center"
+                    android:text="@{ @string/restaurant_currency(viewModel.deliveryCosts) }"
                     android:textAppearance="@style/TextAppearanceBlackH7"
                     android:textColor="@color/grey_light"
                     android:textSize="@dimen/text_size_h8"
                     app:drawableStartCompat="@drawable/ic_delivery_costs"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/g_restaurant_bottom_margin"
                     app:layout_constraintEnd_toEndOf="@id/ib_restaurant_save"
-                    app:layout_constraintStart_toEndOf="@id/tv_restaurant_price"
+                    app:layout_constraintStart_toEndOf="@id/tv_restaurant_min_cost"
                     app:layout_constraintTop_toBottomOf="@id/tv_restaurant_rating_average"
                     tools:text="€2.00" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/g_restaurant_bottom_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/margin_8" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

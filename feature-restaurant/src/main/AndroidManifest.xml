@@ -2,4 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ottoboni.takeawaychallenge.featurerestaurant">
 
+    <application android:theme="@style/ModuleTheme">
+        <activity
+            android:name=".RestaurantActivity"
+            android:theme="@style/ModuleTheme" />
+    </application>
 </manifest>

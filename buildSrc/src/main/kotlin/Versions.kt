@@ -8,7 +8,7 @@ object Versions {
     const val shimmer = "0.5.0"
 
     object DI {
-        const val koin = "2.2.1"
+        const val koin = "3.1.0"
     }
 
     object Lint {

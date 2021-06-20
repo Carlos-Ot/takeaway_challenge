@@ -7,20 +7,27 @@ android {
 }
 
 dependencies {
-    implementation(project(Dependencies.Module.shared))
-    implementation(project(Dependencies.Module.core_domain))
+    with(Dependencies.Module) {
+        implementation(project(shared))
+        implementation(project(core_data))
+        implementation(project(core_domain))
+    }
 
     Dependencies.Kotlin().forEach { implementation(it) }
     Dependencies.AndroidX().forEach { implementation(it) }
     Dependencies.AndroidUI().forEach { implementation(it) }
     Dependencies.AndroidLifecycle().forEach { implementation(it) }
+
     with(Dependencies.Coroutines) {
         implementation(core)
         testImplementation(testing)
     }
 
-    Dependencies.Koin().forEach { implementation(it) }
-    testImplementation(Dependencies.Koin.test)
+    with(Dependencies.Koin) {
+        implementation(core)
+        implementation(android)
+        testImplementation(test)
+    }
 
     with(Dependencies.Navigation) {
         implementation(fragment)

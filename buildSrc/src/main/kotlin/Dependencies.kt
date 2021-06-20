@@ -34,19 +34,10 @@ object Dependencies {
     }
 
     object Koin {
-        const val core = "org.koin:koin-core:${Versions.DI.koin}"
-        private const val coreExt = "org.koin:koin-core-ext:${Versions.DI.koin}"
-
-        const val test = "org.koin:koin-test:${Versions.DI.koin}"
-
-        operator fun invoke() = arrayOf(core, coreExt)
-    }
-
-    object KoinAndroid {
-        private const val android = "org.koin:koin-android:${Versions.DI.koin}"
-        private const val androidViewModel = "org.koin:koin-android-viewmodel:${Versions.DI.koin}"
-
-        operator fun invoke() = arrayOf(android, androidViewModel)
+        const val core = "io.insert-koin:koin-core:${Versions.DI.koin}"
+        const val android = "io.insert-koin:koin-android:${Versions.DI.koin}"
+        const val androidViewModel = "io.insert-koin:koin-android-viewmodel:${Versions.DI.koin}"
+        const val test = "io.insert-koin:koin-test:${Versions.DI.koin}"
     }
 
     object AndroidUI {
@@ -57,7 +48,7 @@ object Dependencies {
             "com.google.android.material:material:${Versions.AndroidUI.material}"
         const val fragment =
             "androidx.fragment:fragment-ktx:${Versions.AndroidKTX.fragment}"
-        private const val recyclerView =
+        const val recyclerView =
             "androidx.recyclerview:recyclerview:${Versions.AndroidUI.recyclerView}"
         private const val cardView = "androidx.cardview:cardview:${Versions.AndroidUI.cardView}"
 
