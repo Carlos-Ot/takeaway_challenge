@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
+import com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus
 import com.ottoboni.takeawaychallenge.coredomain.repository.RestaurantRepository
 import kotlinx.coroutines.launch
 
@@ -20,6 +21,16 @@ class RestaurantListViewModel(
     }
 
     private fun loadData() = viewModelScope.launch {
-        _restaurants.postValue(restaurantRepository.getRestaurants())
+        val comparator =
+            compareBy<Restaurant> { it.isFavorite }
+                .thenBy { it.status == OpeningStatus.OPEN }
+                .thenBy { it.status == OpeningStatus.ORDER_AHEAD }
+                .thenBy { it.status == OpeningStatus.CLOSED }
+                .thenByDescending { it.sortingValues?.distance }
+                .reversed()
+
+        val restaurants = restaurantRepository.getRestaurants()
+            .sortedWith(comparator)
+        _restaurants.postValue(restaurants)
     }
 }
