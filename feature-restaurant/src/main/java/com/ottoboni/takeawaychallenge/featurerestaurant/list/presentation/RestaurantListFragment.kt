@@ -1,5 +1,6 @@
 package com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation
 
+import android.animation.LayoutTransition
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,7 @@ class RestaurantListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
+        lifecycle.addObserver(viewModel)
 
         setupViews()
         observeEvents()
@@ -41,6 +43,7 @@ class RestaurantListFragment : BaseFragment() {
     private fun setupViews() = with(binding) {
         adapter = RestaurantListAdapter(viewLifecycleOwner)
         rvRestaurantList.adapter = adapter
+        clRestaurantListRoot.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
     }
 
     private fun observeEvents() = with(viewModel) {

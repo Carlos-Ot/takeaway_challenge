@@ -8,6 +8,6 @@ import kotlinx.android.parcel.Parcelize
 data class Restaurant(
     val name: String?,
     val status: OpeningStatus,
-    val isFavorite: Boolean,
+    var isFavorite: Boolean,
     val sortingValues: SortingValues?,
 ) : Parcelable

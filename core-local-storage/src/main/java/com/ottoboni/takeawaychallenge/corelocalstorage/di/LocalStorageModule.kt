@@ -16,11 +16,11 @@ object LocalStorageModule {
     val instance = module {
         single { AppDatabase.buildDatabase(context = get()) }
 
-        factory<RestaurantDao> { get<AppDatabase>().restaurantDao() }
-//
-//        factory<UserDao> { get<AppDatabase>().userDao() }
-//
-//        factory<UserRestaurantDao>{ get<AppDatabase>().userRestaurantDao() }
+        factory { get<AppDatabase>().restaurantDao() }
+
+        factory { get<AppDatabase>().userDao() }
+
+        factory{ get<AppDatabase>().userRestaurantDao() }
 
         factory { provideMoshi() }
 

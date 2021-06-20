@@ -33,6 +33,7 @@ interface RestaurantDao {
     @Query("DELETE FROM tb_restaurant")
     suspend fun deleteAll()
 
+    @Suppress("MaxLineLength")
     @Query(
         "SELECT R.id, R.name, R.status, R.best_match, R.newest, R.rating_average, R.distance, R.popularity, R.average_product_price, R.delivery_costs, R.min_cost  FROM tb_restaurant AS R INNER JOIN tb_user_restaurant AS UR ON R.id = UR.restaurantId WHERE UR.userId = :userId AND R.name = :restaurantName"
     )
