@@ -1,5 +1,7 @@
 package com.ottoboni.takeawaychallenge.featurerestaurant.bindings
 
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -34,4 +36,9 @@ fun TextView.setOpeningStatus(openingStatus: OpeningStatus?) {
 @BindingAdapter("toggleStatus")
 fun ImageButton.setupAsToggleButton(toggleStatus: Boolean) {
     isActivated = toggleStatus
+}
+
+@BindingAdapter("goneUnless")
+fun ViewGroup.goneUnless(visible: Boolean) {
+    visibility = if (visible) View.VISIBLE else View.GONE
 }

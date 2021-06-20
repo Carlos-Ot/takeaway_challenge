@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption" />
+
         <variable
             name="viewModel"
             type="com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.RestaurantListViewModel" />
@@ -28,6 +30,104 @@
             app:titleTextAppearance="@style/ToolbarTextAppearance"
             app:titleTextColor="@color/white" />
 
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/b_restaurant_list_filters"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:background="@null"
+            android:button="@null"
+            android:drawableStart="@drawable/restaurant_list_filter_selector"
+            android:onClick="@{ () -> viewModel.onFiltersButtonClicked() }"
+            android:text="@{ @string/restaurant_list_filter_text(viewModel.selectedFilter) }"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/t_restaurant_list"
+            tools:text="Filters (Best Match)" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cg_restaurant_list_filters"
+            goneUnless="@{ viewModel.areFiltersVisible }"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginEnd="@dimen/margin_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/b_restaurant_list_filters"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_best_match"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:onClick="@{ () -> viewModel.onSortingOptionChecked(SortingOption.BEST_MATCH) }"
+                android:text="Best Match" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_newest"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> viewModel.onSortingOptionChecked(SortingOption.NEWEST) }"
+                android:text="Newest" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_rating_average"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> viewModel.onSortingOptionChecked(SortingOption.RATING_AVERAGE) }"
+                android:text="Rating Average" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_distance"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> viewModel.onSortingOptionChecked(SortingOption.DISTANCE) }"
+                android:text="Distance" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_popularity"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> viewModel.onSortingOptionChecked(SortingOption.POPULARITY) }"
+                android:text="Popularity" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_avg_product_price"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> viewModel.onSortingOptionChecked(SortingOption.AVERAGE_PRODUCT_PRICE) }"
+                android:text="Average Product Price" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_delivery_costs"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> viewModel.onSortingOptionChecked(SortingOption.DELIVERY_COSTS) }"
+                android:text="Delivery Costs" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/c_min_cost"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{ () -> viewModel.onSortingOptionChecked(SortingOption.MIN_COST) }"
+                android:text="Min Cost" />
+
+        </com.google.android.material.chip.ChipGroup>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_restaurant_list"
             android:layout_width="0dp"
@@ -39,7 +139,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/t_restaurant_list"
+            app:layout_constraintTop_toBottomOf="@id/cg_restaurant_list_filters"
             app:layout_constraintVertical_bias="0.0"
             tools:itemCount="5"
             tools:listitem="@layout/item_restaurant" />

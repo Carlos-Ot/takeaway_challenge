@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
 import com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus
 import com.ottoboni.takeawaychallenge.coredomain.repository.RestaurantRepository
+import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.*
 import kotlinx.coroutines.launch
 
 class RestaurantListViewModel(
@@ -18,24 +19,55 @@ class RestaurantListViewModel(
     private val restaurantListMediator: RestaurantListMediator,
 ) : ViewModel(), LifecycleObserver {
 
+    private val _areFiltersVisible = MutableLiveData(false)
+    val areFiltersVisible: LiveData<Boolean> get() = _areFiltersVisible
+
+    private val _selectedFilter = MutableLiveData(BEST_MATCH)
+    val selectedFilter: LiveData<SortingOption> get() = _selectedFilter
+
+    private var currentSorting = getComparatorBy(BEST_MATCH)
+
     private val _restaurants = MutableLiveData<List<Restaurant>>()
-    val restaurants: LiveData<List<Restaurant>> get() = _restaurants
+    val restaurants: LiveData<List<Restaurant>> = _restaurants
 
     private val onToggleFavoriteObserver = Observer<Unit> {
         loadData()
     }
 
-    private val comparator =
+    init {
+        restaurantListMediator.onToggleFavoriteItem.observeForever(onToggleFavoriteObserver)
+    }
+
+    fun onFiltersButtonClicked() {
+        _areFiltersVisible.postValue(_areFiltersVisible.value?.not() ?: false)
+    }
+
+    fun onSortingOptionChecked(option: SortingOption) {
+        _selectedFilter.postValue(option)
+        currentSorting = getComparatorBy(option)
+        _restaurants.postValue(
+            _restaurants.value?.sortedWith(getCurrentSorting())
+        )
+    }
+
+    private fun getComparatorBy(option: SortingOption) = when (option) {
+        BEST_MATCH -> compareBy<Restaurant> { it.sortingValues?.bestMatch }
+        NEWEST -> compareByDescending { it.sortingValues?.newest }
+        RATING_AVERAGE -> compareBy { it.sortingValues?.ratingAverage }
+        DISTANCE -> compareByDescending { it.sortingValues?.distance }
+        POPULARITY -> compareBy { it.sortingValues?.popularity }
+        AVERAGE_PRODUCT_PRICE -> compareByDescending { it.sortingValues?.averageProductPrice }
+        DELIVERY_COSTS -> compareByDescending { it.sortingValues?.deliveryCosts }
+        MIN_COST -> compareByDescending { it.sortingValues?.minCost }
+    }
+
+    private fun getCurrentSorting() =
         compareBy<Restaurant> { it.isFavorite }
             .thenBy { it.status == OpeningStatus.OPEN }
             .thenBy { it.status == OpeningStatus.ORDER_AHEAD }
             .thenBy { it.status == OpeningStatus.CLOSED }
-            .thenByDescending { it.sortingValues?.distance }
+            .then(currentSorting)
             .reversed()
-
-    init {
-        restaurantListMediator.onToggleFavoriteItem.observeForever(onToggleFavoriteObserver)
-    }
 
     override fun onCleared() {
         restaurantListMediator.onToggleFavoriteItem.removeObserver(onToggleFavoriteObserver)
@@ -48,7 +80,7 @@ class RestaurantListViewModel(
 
     private fun loadData() = viewModelScope.launch {
         val restaurants = restaurantRepository.getRestaurants()
-            .sortedWith(comparator)
+            .sortedWith(getCurrentSorting())
         _restaurants.postValue(restaurants)
     }
 }

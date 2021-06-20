@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.2453125" />
         <entry key="app/src/main/res/drawable/background_launcher.xml" value="0.24635416666666668" />
         <entry key="feature-restaurant/src/main/res/drawable/favorite_button_status_selector.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_bookmark_default.xml" value="0.41333333333333333" />
@@ -12,6 +13,8 @@
         <entry key="feature-restaurant/src/main/res/drawable/ic_delivery_costs_medium.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_distance.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_distance_medium.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_expand_less.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/ic_expand_more.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_min_cost.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_min_cost_medium.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_newest.xml" value="0.41333333333333333" />
@@ -24,6 +27,7 @@
         <entry key="feature-restaurant/src/main/res/drawable/ic_thumb_up.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/ic_trending_up.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/drawable/restaurant_details_favorite_button_status_selector.xml" value="0.41333333333333333" />
+        <entry key="feature-restaurant/src/main/res/drawable/restaurant_list_filter_selection.xml" value="0.41333333333333333" />
         <entry key="feature-restaurant/src/main/res/layout/activity_restaurant.xml" value="0.4036458333333333" />
         <entry key="feature-restaurant/src/main/res/layout/fragment_restaurant_details.xml" value="0.46041666666666664" />
         <entry key="feature-restaurant/src/main/res/layout/fragment_restaurant_list.xml" value="0.429126213592233" />

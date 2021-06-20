@@ -18,4 +18,7 @@
     <string name="restaurant_details_popularity">Popularity (%.1f)</string>
     <string name="restaurant_details_best_match">Best Match (%.1f)</string>
     <string name="restaurant_details_avg_price">Avg. Price € %.2f</string>
+
+    <!-- Restaurant List -->
+    <string name="restaurant_list_filter_text">Sorting Options (%s)</string>
 </resources>
