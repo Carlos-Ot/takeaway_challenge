@@ -47,6 +47,7 @@ fun Project.configureLibraryModules() {
     apply(plugin = "io.gitlab.arturbosch.detekt")
     apply(plugin = "kotlin-android")
     apply(plugin = "kotlin-kapt")
+    apply(plugin = "kotlin-parcelize")
 
     detekt {
         failFast = true

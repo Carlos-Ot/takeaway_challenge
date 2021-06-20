@@ -19,6 +19,7 @@
         <item name="colorPrimary">@color/chili_pepper</item>
         <item name="colorPrimaryDark">@color/red_devil</item>
         <item name="colorAccent">@color/cantaloupe</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="ToolbarTextAppearance">

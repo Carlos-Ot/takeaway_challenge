@@ -9,5 +9,11 @@ dependencies {
         implementation(material)
     }
 
+    with(Dependencies.Navigation) {
+        implementation(fragment)
+        implementation(ui)
+        androidTestImplementation(testing)
+    }
+
     implementation(Dependencies.AndroidLifecycle.livedata)
 }

@@ -9,4 +9,23 @@
         android:id="@+id/restaurant_list"
         android:name="com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.RestaurantListFragment"
         tools:layout="@layout/fragment_restaurant_list" />
+
+    <fragment
+        android:id="@+id/restaurant_details"
+        android:name="com.ottoboni.takeawaychallenge.featurerestaurant.details.presentation.RestaurantDetailsFragment"
+        tools:layout="@layout/fragment_restaurant_details">
+
+        <argument
+            android:name="restaurant"
+            app:argType="com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_navigate_to_restaurant_details"
+        app:destination="@id/restaurant_details"
+        app:popUpTo="@navigation/restaurant_nav_graph"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/hold_still"
+        app:popEnterAnim="@anim/hold_still"
+        app:popExitAnim="@anim/slide_out_right"/>
 </navigation>

@@ -16,6 +16,7 @@
         android:paddingBottom="@dimen/margin_8">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cv_restaurant"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_16"
@@ -27,6 +28,7 @@
             app:layout_constraintBottom_toBottomOf="@id/cv_store_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:transitionName="restaurant_card"
             app:layout_constraintTop_toBottomOf="@id/cv_store_icon">
 
             <androidx.constraintlayout.widget.ConstraintLayout

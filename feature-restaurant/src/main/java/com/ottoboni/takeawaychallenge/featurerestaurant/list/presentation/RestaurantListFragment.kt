@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import com.ottoboni.takeawaychallenge.featurerestaurant.databinding.FragmentRestaurantListBinding
 import com.ottoboni.takeawaychallenge.featurerestaurant.list.di.RestaurantListModule
 import com.ottoboni.takeawaychallenge.shared.base.BaseFragment
