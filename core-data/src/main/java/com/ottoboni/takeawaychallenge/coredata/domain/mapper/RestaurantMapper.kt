@@ -3,7 +3,6 @@ package com.ottoboni.takeawaychallenge.coredata.domain.mapper
 import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
 import com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.RestaurantEntity
-import java.lang.Exception
 
 class RestaurantMapper(private val sortingValuesMapper: SortingValuesMapper) :
     Mapper<RestaurantEntity, Restaurant> {

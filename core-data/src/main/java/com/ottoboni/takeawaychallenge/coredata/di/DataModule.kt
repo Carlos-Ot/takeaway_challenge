@@ -4,8 +4,6 @@ import com.ottoboni.takeawaychallenge.coredata.datasource.RestaurantExternalData
 import com.ottoboni.takeawaychallenge.coredata.datasource.RestaurantExternalDataSourceImpl
 import com.ottoboni.takeawaychallenge.coredata.datasource.RestaurantLocalDataSource
 import com.ottoboni.takeawaychallenge.coredata.datasource.RestaurantLocalDataSourceImpl
-import com.ottoboni.takeawaychallenge.coredata.domain.dispatchers.DispatcherMap
-import com.ottoboni.takeawaychallenge.coredata.domain.dispatchers.MainDispatcherMap
 import com.ottoboni.takeawaychallenge.coredata.domain.factory.OpeningStatusFactory
 import com.ottoboni.takeawaychallenge.coredata.domain.factory.RestaurantFactory
 import com.ottoboni.takeawaychallenge.coredata.domain.factory.SortingValuesFactory
@@ -16,8 +14,6 @@ import org.koin.dsl.module
 object DataModule {
 
     val instance = module {
-        factory<DispatcherMap> { MainDispatcherMap() }
-
         factory { OpeningStatusFactory() }
 
         factory { SortingValuesFactory() }

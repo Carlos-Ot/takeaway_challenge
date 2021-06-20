@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.RestaurantItemViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/margin_8">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_restaurant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16"
+            android:layout_marginEnd="@dimen/margin_16"
+            android:onClick="@{ () -> viewModel.onItemClicked() }"
+            android:paddingBottom="@dimen/margin_32"
+            app:cardCornerRadius="@dimen/margin_16"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintBottom_toBottomOf="@id/cv_store_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:transitionName="restaurant_card"
+            app:layout_constraintTop_toBottomOf="@id/cv_store_icon">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_restaurant_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_40"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{ viewModel.name }"
+                    android:textAppearance="@style/TextAppearanceBlackH3"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toStartOf="@id/tv_opening_status"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Lamen San" />
+
+                <TextView
+                    android:id="@+id/tv_opening_status"
+                    openingStatus="@{ viewModel.openingStatus }"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:textAppearance="@style/TextAppearanceBlackH8"
+                    android:textColor="@color/medium_forest_green"
+                    app:layout_constraintBaseline_toBaselineOf="@id/tv_restaurant_name"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_restaurant_name"
+                    app:layout_constraintEnd_toStartOf="@id/b_restaurant_title"
+                    app:layout_constraintStart_toEndOf="@id/tv_restaurant_name"
+                    app:layout_constraintTop_toTopOf="@id/tv_restaurant_name"
+                    tools:text="(Open)" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/b_restaurant_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="start"
+                    app:constraint_referenced_ids="ib_restaurant_save" />
+
+                <ImageButton
+                    android:id="@+id/ib_restaurant_save"
+                    toggleStatus="@{ viewModel.isFavorite }"
+                    android:layout_width="@dimen/size_32"
+                    android:layout_height="@dimen/size_32"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:layout_marginEnd="@dimen/margin_16"
+                    android:background="@null"
+                    android:importantForAccessibility="no"
+                    android:onClick="@{ () -> viewModel.onBookmarkButtonClicked() }"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/item_restaurant_favorite_button_status_selector" />
+
+                <ImageView
+                    android:id="@+id/iv_restaurant_rating_average_icon"
+                    android:layout_width="@dimen/size_16"
+                    android:layout_height="@dimen/size_16"
+                    android:layout_marginTop="@dimen/margin_4"
+                    app:layout_constraintStart_toStartOf="@id/tv_restaurant_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_restaurant_name"
+                    app:srcCompat="@drawable/ic_rating" />
+
+                <TextView
+                    android:id="@+id/tv_restaurant_rating_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:text="@{ viewModel.averageRating }"
+                    android:textAppearance="@style/TextAppearanceBlackH7"
+                    android:textColor="@color/cantaloupe"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_restaurant_rating_average_icon"
+                    app:layout_constraintStart_toEndOf="@id/iv_restaurant_rating_average_icon"
+                    app:layout_constraintTop_toTopOf="@id/iv_restaurant_rating_average_icon"
+                    tools:text="4.2" />
+
+
+                <TextView
+                    android:id="@+id/tv_restaurant_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:drawablePadding="@dimen/margin_4"
+                    android:gravity="center"
+                    android:text="@{ @string/restaurant_distance(viewModel.distance) }"
+                    android:textAppearance="@style/TextAppearanceBlackH7"
+                    android:textColor="@color/grey_light"
+                    android:textSize="@dimen/text_size_h8"
+                    app:drawableStartCompat="@drawable/ic_distance_small"
+                    app:layout_constraintBottom_toTopOf="@id/g_restaurant_bottom_margin"
+                    app:layout_constraintEnd_toStartOf="@id/tv_restaurant_min_cost"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="@id/tv_restaurant_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_restaurant_rating_average"
+                    tools:text="1.2km" />
+
+                <TextView
+                    android:id="@+id/tv_restaurant_min_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:drawablePadding="@dimen/margin_4"
+                    android:gravity="center"
+                    android:text="@{ @string/restaurant_currency(viewModel.minCost) }"
+                    android:textAppearance="@style/TextAppearanceBlackH7"
+                    android:textColor="@color/grey_light"
+                    android:textSize="@dimen/text_size_h8"
+                    app:drawableStartCompat="@drawable/ic_min_cost_small"
+                    app:layout_constraintBottom_toTopOf="@id/g_restaurant_bottom_margin"
+                    app:layout_constraintEnd_toStartOf="@id/tv_restaurant_delivery_costs"
+                    app:layout_constraintStart_toEndOf="@id/tv_restaurant_distance"
+                    app:layout_constraintTop_toBottomOf="@id/tv_restaurant_rating_average"
+                    tools:text="€1.30" />
+
+                <TextView
+                    android:id="@+id/tv_restaurant_delivery_costs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:drawablePadding="@dimen/margin_4"
+                    android:gravity="center"
+                    android:text="@{ @string/restaurant_currency(viewModel.deliveryCosts) }"
+                    android:textAppearance="@style/TextAppearanceBlackH7"
+                    android:textColor="@color/grey_light"
+                    android:textSize="@dimen/text_size_h8"
+                    app:drawableStartCompat="@drawable/ic_delivery_costs_small"
+                    app:layout_constraintBottom_toTopOf="@id/g_restaurant_bottom_margin"
+                    app:layout_constraintEnd_toEndOf="@id/ib_restaurant_save"
+                    app:layout_constraintStart_toEndOf="@id/tv_restaurant_min_cost"
+                    app:layout_constraintTop_toBottomOf="@id/tv_restaurant_rating_average"
+                    tools:text="€2.00" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/g_restaurant_bottom_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="@dimen/margin_8" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_store_icon"
+            android:layout_width="@dimen/size_40"
+            android:layout_height="@dimen/size_40"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_marginTop="@dimen/margin_8"
+            android:translationZ="1dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAccessibility="no"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_storefront" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

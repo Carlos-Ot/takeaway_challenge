@@ -20,8 +20,11 @@ dependencies {
 
     implementation(Dependencies.AndroidLifecycle.livedata)
 
-    Dependencies.Koin().forEach { implementation(it) }
-    testImplementation(Dependencies.Koin.test)
+    with(Dependencies.Koin) {
+        implementation(core)
+        implementation(android)
+        testImplementation(test)
+    }
 
     Dependencies.Testing(Dependencies.Testing.Type.UNIT).forEach { testImplementation(it) }
     Dependencies.Testing(Dependencies.Testing.Type.ANDROID)

@@ -1,7 +1,6 @@
 package com.ottoboni.takeawaychallenge.corelocalstorage.database
 
 import androidx.test.core.app.ApplicationProvider
-import com.ottoboni.takeawaychallenge.corelocalstorage.database.AppDatabase
 import org.junit.AfterClass
 import org.junit.BeforeClass
 

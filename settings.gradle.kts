@@ -6,3 +6,4 @@ include(
     ":core-domain"
 )
 include(":shared")
+include(":feature-restaurant")

@@ -11,7 +11,7 @@ buildscript {
     dependencies {
         classpath(Config.AndroidClassPath.gradlePlugin)
         classpath(Config.AndroidClassPath.kotlinPlugin)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10")
+        classpath(Config.AndroidClassPath.navigation)
     }
 }
 
@@ -47,11 +47,11 @@ fun Project.configureLibraryModules() {
     apply(plugin = "io.gitlab.arturbosch.detekt")
     apply(plugin = "kotlin-android")
     apply(plugin = "kotlin-kapt")
+    apply(plugin = "kotlin-parcelize")
 
     detekt {
         failFast = true
         buildUponDefaultConfig = true
-        config = files("../config/detekt/detekt.yml")
 
         reports {
             xml {

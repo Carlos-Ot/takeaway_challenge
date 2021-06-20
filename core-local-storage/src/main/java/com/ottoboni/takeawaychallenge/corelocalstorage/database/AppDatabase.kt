@@ -11,11 +11,11 @@ import com.ottoboni.takeawaychallenge.corelocalstorage.database.dao.UserRestaura
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.RestaurantEntity
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.UserEntity
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.entity.UserRestaurantEntity
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 @Database(
     entities = [
@@ -44,11 +44,13 @@ abstract class AppDatabase : RoomDatabase() {
                     .build()
             else
                 Room.databaseBuilder(context, AppDatabase::class.java, NAME)
-                    .addCallback(object : Callback() {
-                        override fun onCreate(db: SupportSQLiteDatabase) {
-                            setupDefaultData(db)
+                    .addCallback(
+                        object : Callback() {
+                            override fun onCreate(db: SupportSQLiteDatabase) {
+                                setupDefaultData(db)
+                            }
                         }
-                    })
+                    )
                     .build()
 
         private fun setupDefaultData(db: SupportSQLiteDatabase) = object : CoroutineScope {

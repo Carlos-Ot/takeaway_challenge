@@ -12,22 +12,11 @@ object Config {
         const val gradlePlugin = "com.android.tools.build:gradle:${Versions.gradlePlugin}"
         const val kotlinPlugin =
             "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}"
+        const val navigation =
+            "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
     }
 
     object AndroidTestRunner {
         const val instrumentationTestRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    object BuildField {
-
-        object Types {
-            const val string = "String"
-        }
-
-        object Field {
-        }
-
-        object Value {
-        }
     }
 }

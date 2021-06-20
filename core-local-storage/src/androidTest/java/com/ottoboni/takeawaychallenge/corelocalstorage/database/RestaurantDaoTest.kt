@@ -46,9 +46,13 @@ class RestaurantDaoTest : DaoTest() {
     fun insertDuplicateShouldBeIgnored() = runBlocking {
         restaurantDao.insert(restaurantEntity)
 
-        val insertedId = restaurantDao.insert(RestaurantEntity(name = "Lamen San",
-            status = "open",
-            sortingValues = null))
+        val insertedId = restaurantDao.insert(
+            RestaurantEntity(
+                name = "Lamen San",
+                status = "open",
+                sortingValues = null
+            )
+        )
 
         assertThat(restaurantDao.selectBy(restaurantEntity.id)).isNotNull()
         assertThat(restaurantDao.selectBy(insertedId)).isNull()
