@@ -1,9 +1,6 @@
 package com.ottoboni.takeawaychallenge.corelocalstorage.di
 
 import com.ottoboni.takeawaychallenge.corelocalstorage.database.AppDatabase
-import com.ottoboni.takeawaychallenge.corelocalstorage.database.dao.RestaurantDao
-import com.ottoboni.takeawaychallenge.corelocalstorage.database.dao.UserDao
-import com.ottoboni.takeawaychallenge.corelocalstorage.database.dao.UserRestaurantDao
 import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.JsonReader
 import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.JsonReaderImpl
 import com.ottoboni.takeawaychallenge.corelocalstorage.filestore.data.enums.OpeningStatusData
@@ -20,7 +17,7 @@ object LocalStorageModule {
 
         factory { get<AppDatabase>().userDao() }
 
-        factory{ get<AppDatabase>().userRestaurantDao() }
+        factory { get<AppDatabase>().userRestaurantDao() }
 
         factory { provideMoshi() }
 

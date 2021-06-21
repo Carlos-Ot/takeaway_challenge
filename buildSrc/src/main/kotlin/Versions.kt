@@ -5,7 +5,6 @@ object Versions {
     const val coroutines = "1.3.9"
     const val moshi = "1.12.0"
     const val navigation = "2.3.5"
-    const val shimmer = "0.5.0"
 
     object DI {
         const val koin = "3.1.0"

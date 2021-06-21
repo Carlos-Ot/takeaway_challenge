@@ -35,7 +35,7 @@ class RestaurantItemViewModel(
 
     fun onBookmarkButtonClicked() {
         viewModelScope.launch {
-            restaurant.isFavorite = restaurantRepository.toggleFavoriteStatusFor(restaurant)
+            restaurantRepository.toggleFavoriteStatusFor(restaurant)
             restaurantListMediator.onToggleFavoriteItem()
         }
     }

@@ -11,7 +11,14 @@ import androidx.lifecycle.viewModelScope
 import com.ottoboni.takeawaychallenge.coredata.domain.model.Restaurant
 import com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus
 import com.ottoboni.takeawaychallenge.coredomain.repository.RestaurantRepository
-import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.*
+import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.AVERAGE_PRODUCT_PRICE
+import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.BEST_MATCH
+import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.DELIVERY_COSTS
+import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.DISTANCE
+import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.MIN_COST
+import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.NEWEST
+import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.POPULARITY
+import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.RATING_AVERAGE
 import kotlinx.coroutines.launch
 
 class RestaurantListViewModel(
@@ -30,15 +37,13 @@ class RestaurantListViewModel(
     private val _restaurants = MutableLiveData<List<Restaurant>>()
     val restaurants: LiveData<List<Restaurant>> = _restaurants
 
-    private val onToggleFavoriteObserver = Observer<Unit> {
-        loadData()
-    }
+    private val onToggleFavoriteObserver = Observer<Unit> { loadData() }
 
     init {
         restaurantListMediator.onToggleFavoriteItem.observeForever(onToggleFavoriteObserver)
     }
 
-    fun onFiltersButtonClicked() {
+    fun onSortingButtonClicked() {
         _areFiltersVisible.postValue(_areFiltersVisible.value?.not() ?: false)
     }
 
