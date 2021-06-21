@@ -30,15 +30,13 @@ class RestaurantListViewModel(
     private val _restaurants = MutableLiveData<List<Restaurant>>()
     val restaurants: LiveData<List<Restaurant>> = _restaurants
 
-    private val onToggleFavoriteObserver = Observer<Unit> {
-        loadData()
-    }
+    private val onToggleFavoriteObserver = Observer<Unit> { loadData() }
 
     init {
         restaurantListMediator.onToggleFavoriteItem.observeForever(onToggleFavoriteObserver)
     }
 
-    fun onFiltersButtonClicked() {
+    fun onSortingButtonClicked() {
         _areFiltersVisible.postValue(_areFiltersVisible.value?.not() ?: false)
     }
 

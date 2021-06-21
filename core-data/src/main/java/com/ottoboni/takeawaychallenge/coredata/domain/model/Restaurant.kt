@@ -9,5 +9,5 @@ data class Restaurant(
     val name: String?,
     val status: OpeningStatus,
     var isFavorite: Boolean,
-    val sortingValues: SortingValues?,
+    val sortingValues: SortingValues?
 ) : Parcelable

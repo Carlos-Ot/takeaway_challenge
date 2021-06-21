@@ -56,10 +56,6 @@ object Dependencies {
             arrayOf(appCompat, constraintLayout, material, fragment, recyclerView, cardView)
     }
 
-    object UI {
-        const val shimmer = "com.facebook.shimmer:shimmer:${Versions.shimmer}"
-    }
-
     object Navigation {
         const val fragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
         const val ui = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
