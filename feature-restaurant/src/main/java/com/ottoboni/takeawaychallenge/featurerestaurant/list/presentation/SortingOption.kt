@@ -1,7 +1,5 @@
 package com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation
 
-import java.util.*
-
 enum class SortingOption {
     BEST_MATCH,
     NEWEST,

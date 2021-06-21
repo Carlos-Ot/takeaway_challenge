@@ -4,6 +4,10 @@ android {
     buildFeatures {
         dataBinding = true
     }
+
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -34,8 +38,6 @@ dependencies {
         implementation(ui)
         androidTestImplementation(testing)
     }
-
-    implementation(Dependencies.UI.shimmer)
 
     Dependencies.Testing(Dependencies.Testing.Type.UNIT).forEach { testImplementation(it) }
     Dependencies.Testing(Dependencies.Testing.Type.ANDROID)

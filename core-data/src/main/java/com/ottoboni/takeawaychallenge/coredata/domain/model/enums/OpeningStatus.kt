@@ -1,7 +1,5 @@
 package com.ottoboni.takeawaychallenge.coredata.domain.model.enums
 
-import java.lang.Exception
-
 enum class OpeningStatus {
     OPEN,
     CLOSED,

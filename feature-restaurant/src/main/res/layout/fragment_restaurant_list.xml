@@ -40,7 +40,7 @@
             android:background="@null"
             android:button="@null"
             android:drawableStart="@drawable/restaurant_list_filter_selector"
-            android:onClick="@{ () -> viewModel.onFiltersButtonClicked() }"
+            android:onClick="@{ () -> viewModel.onSortingButtonClicked() }"
             android:text="@{ @string/restaurant_list_filter_text(viewModel.selectedFilter) }"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
