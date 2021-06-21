@@ -7,7 +7,7 @@ import io.mockk.mockk
 
 fun mockRestaurant() = mockk<Restaurant> {
     every { name } returns ""
-    every { status } returns com.ottoboni.takeawaychallenge.coredata.domain.model.enums.OpeningStatus.OPEN
+    every { status } returns OpeningStatus.OPEN
     every { isFavorite } returns true
     every { sortingValues } returns mockk {
         every { bestMatch } returns 10.0f

@@ -8,11 +8,9 @@ import com.ottoboni.takeawaychallenge.coredomain.repository.RestaurantRepository
 import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.RestaurantListMediator
 import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.RestaurantListViewModel
 import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption
-import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.BEST_MATCH
 import com.ottoboni.takeawaychallenge.featurerestaurant.list.presentation.SortingOption.DELIVERY_COSTS
 import io.mockk.MockKAnnotations
 import io.mockk.every
-import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.verify

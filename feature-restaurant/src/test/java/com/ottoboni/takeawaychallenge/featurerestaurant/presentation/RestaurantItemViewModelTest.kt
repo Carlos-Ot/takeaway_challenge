@@ -21,10 +21,8 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.justRun
 import io.mockk.verify
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
-import kotlinx.coroutines.test.setMain
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -51,7 +49,9 @@ class RestaurantItemViewModelTest {
     @Before
     fun setup() {
         MockKAnnotations.init(this)
-        every { restaurantRepository.observeFavoriteStatusFor(any()) } returns MutableLiveData(false)
+        every { restaurantRepository.observeFavoriteStatusFor(any()) } returns MutableLiveData(
+            false
+        )
 
         viewModel = RestaurantItemViewModel(
             restaurant,
@@ -74,7 +74,8 @@ class RestaurantItemViewModelTest {
             restaurant.sortingValues?.minCost?.div(CENTS_DIVISOR)
         )
         assertThat(viewModel.deliveryCosts).isEqualTo(
-            restaurant.sortingValues?.deliveryCosts?.div(CENTS_DIVISOR))
+            restaurant.sortingValues?.deliveryCosts?.div(CENTS_DIVISOR)
+        )
     }
 
     @Test
